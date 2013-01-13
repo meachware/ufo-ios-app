@@ -8,8 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SGAppDelegate : UIResponder <UIApplicationDelegate>
+@class SGMainViewController;
 
-@property (strong, nonatomic) UIWindow *window;
+@interface SGAppDelegate : UIResponder <UIApplicationDelegate>
+{
+@private
+	SGMainViewController * _mainController;
+}
+
+@property (strong, nonatomic) UIWindow * window;
+@property (strong, nonatomic) SGMainViewController * mainController;
 
 @end
