@@ -53,6 +53,7 @@
     [super viewDidLoad];
 	
 	[_navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topbar_bg"] forBarMetrics:UIBarMetricsDefault];
+	[_navigationController didMoveToParentViewController:self];
 	
 	SGTableViewController * startingViewController = [_pageModelController viewControllerAtIndex:0];
 	NSArray * viewControllers = @[startingViewController];
@@ -65,11 +66,41 @@
 	[_pageViewController didMoveToParentViewController:self];
 	
 	self.view.gestureRecognizers = _pageViewController.gestureRecognizers;
+	
+	self.view.pageControlView.pageControl.numberOfPages = _pageModelController.dataViewControllers.count;
+	self.view.pageControlView.pageControl.currentPage = 0;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+#pragma mark UIPageViewController Delegate
+
+- (void)pageViewController:(UIPageViewController *)pageViewController didFinishAnimating:(BOOL)finished previousViewControllers:(NSArray *)previousViewControllers transitionCompleted:(BOOL)completed
+{
+	if (completed)
+	{
+		NSUInteger index = [_pageModelController indexOfViewController:_currentViewController];
+		if (index != NSNotFound)
+		{
+			self.view.pageControlView.pageControl.currentPage = index;
+		}
+	}
+}
+
+- (void)pageViewController:(UIPageViewController *)pageViewController willTransitionToViewControllers:(NSArray *)pendingViewControllers
+{
+	if (pendingViewControllers.count == 1)
+	{
+		_currentViewController = [pendingViewControllers objectAtIndex:0];
+		[_currentViewController setSelectArticleProvider:^(SGBaseArticle * article){
+			NSLog(@"Select");
+			
+			[self.view animateDown];
+		}];
+	}
 }
 
 @end

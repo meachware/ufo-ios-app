@@ -8,6 +8,7 @@
 
 #import "SGTableViewController.h"
 #import "SGArticleCell.h"
+#import "SGBaseArticle.h"
 
 @interface SGTableViewController ()
 
@@ -15,12 +16,20 @@
 
 @implementation SGTableViewController
 
+@synthesize selectArticleProvider = _selectArticleProvider;
+@synthesize articles = _articles;
+
 - (id)init
 {
 	self = [super initWithStyle:UITableViewStyleGrouped];
 	if (self)
 	{
         [self.tableView registerClass:SGArticleCell.class forCellReuseIdentifier:@"Cell"];
+		
+		self.refreshControl = [UIRefreshControl.alloc init];
+		self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull to refresh"];
+		[self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
+		
     }
     return self;
 }
@@ -48,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 25;
+    return _articles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -56,7 +65,9 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-	cell.textLabel.text = @"edede";
+	SGBaseArticle * article = [_articles objectAtIndex:indexPath.row];
+	
+	cell.textLabel.text = article.title;
 	
     return cell;
 }
@@ -65,13 +76,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    if (_selectArticleProvider)
+	{
+		_selectArticleProvider(SGBaseArticle.alloc.init);
+	}
+}
+
+#pragma mark Actions
+
+- (void)refresh:(id)sender
+{
+	self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Refreshing"];
 }
 
 @end

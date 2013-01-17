@@ -18,6 +18,7 @@
 	UINavigationController * _navigationController;
 	UIPageViewController * _pageViewController;
 	SGPageModelController * _pageModelController;
+	SGTableViewController * _currentViewController;
 }
 
 #pragma mark Properties
