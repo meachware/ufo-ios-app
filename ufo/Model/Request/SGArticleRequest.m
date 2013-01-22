@@ -103,8 +103,6 @@
 		{
 			SGNewsArticle * article = SGNewsArticle.alloc.init;
 			[article updateWithServedJson:dic];
-			
-			NSLog(@"Article");
 		}
 		
 		return YES;
