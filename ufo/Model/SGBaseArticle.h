@@ -10,16 +10,17 @@
 
 @interface SGBaseArticle : NSObject
 {
-@private
+@protected
 	NSString * _title;
 	NSDate * _publishDate;
 	NSString * _text;
-	BOOL _active;
 }
 
 @property (nonatomic, readonly, strong) NSString * title;
 @property (nonatomic, readonly, strong) NSDate * publishDate;
 @property (nonatomic, readonly, strong) NSString * text;
-@property (nonatomic, readonly) BOOL active;
+
+#pragma mark Public Methods
+- (void)updateWithServedJson:(NSDictionary *)json;
 
 @end

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		661C370C16A86A6D000FE6A0 /* SGNewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 661C370B16A86A6D000FE6A0 /* SGNewsArticle.m */; };
+		661C371516A872C3000FE6A0 /* SGRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661C371416A872C3000FE6A0 /* SGRequestOperation.m */; };
+		661C371816A8734A000FE6A0 /* SGAbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 661C371716A8734A000FE6A0 /* SGAbstractRequest.m */; };
+		6653E95C16ADC7C8001A6717 /* SGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653E95B16ADC7C8001A6717 /* SGRequestManager.m */; };
+		6653E96016ADCF32001A6717 /* SGArticleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653E95F16ADCF32001A6717 /* SGArticleRequest.m */; };
+		6653E96216ADD06F001A6717 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6653E96116ADD06F001A6717 /* Security.framework */; };
+		6653E96416ADD0A8001A6717 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6653E96316ADD0A8001A6717 /* SystemConfiguration.framework */; };
 		669584BB16A30532003CD021 /* SGPageModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669584BA16A30532003CD021 /* SGPageModelController.m */; };
 		66BBFC4C16A3153D0017439E /* SGPageControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC4B16A3153D0017439E /* SGPageControlView.m */; };
 		66BBFC5416A321330017439E /* NSDictionary+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5316A321330017439E /* NSDictionary+Json.m */; };
@@ -40,6 +46,16 @@
 /* Begin PBXFileReference section */
 		661C370A16A86A6D000FE6A0 /* SGNewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGNewsArticle.h; sourceTree = "<group>"; };
 		661C370B16A86A6D000FE6A0 /* SGNewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGNewsArticle.m; sourceTree = "<group>"; };
+		661C371316A872C3000FE6A0 /* SGRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRequestOperation.h; sourceTree = "<group>"; };
+		661C371416A872C3000FE6A0 /* SGRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGRequestOperation.m; sourceTree = "<group>"; };
+		661C371616A8734A000FE6A0 /* SGAbstractRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAbstractRequest.h; sourceTree = "<group>"; };
+		661C371716A8734A000FE6A0 /* SGAbstractRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGAbstractRequest.m; sourceTree = "<group>"; };
+		6653E95A16ADC7C8001A6717 /* SGRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRequestManager.h; sourceTree = "<group>"; };
+		6653E95B16ADC7C8001A6717 /* SGRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGRequestManager.m; sourceTree = "<group>"; };
+		6653E95E16ADCF32001A6717 /* SGArticleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGArticleRequest.h; sourceTree = "<group>"; };
+		6653E95F16ADCF32001A6717 /* SGArticleRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGArticleRequest.m; sourceTree = "<group>"; };
+		6653E96116ADD06F001A6717 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6653E96316ADD0A8001A6717 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		669584B916A30532003CD021 /* SGPageModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPageModelController.h; sourceTree = "<group>"; };
 		669584BA16A30532003CD021 /* SGPageModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPageModelController.m; sourceTree = "<group>"; };
 		66BBFC4A16A3153D0017439E /* SGPageControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPageControlView.h; sourceTree = "<group>"; };
@@ -89,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6653E96416ADD0A8001A6717 /* SystemConfiguration.framework in Frameworks */,
+				6653E96216ADD06F001A6717 /* Security.framework in Frameworks */,
 				66C043B216A474B30094C446 /* QuartzCore.framework in Frameworks */,
 				66F2E71D16A158E1006C5D22 /* UIKit.framework in Frameworks */,
 				66F2E71F16A158E1006C5D22 /* Foundation.framework in Frameworks */,
@@ -99,9 +117,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		661C371216A8728D000FE6A0 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				6653E95A16ADC7C8001A6717 /* SGRequestManager.h */,
+				6653E95B16ADC7C8001A6717 /* SGRequestManager.m */,
+				661C371616A8734A000FE6A0 /* SGAbstractRequest.h */,
+				661C371716A8734A000FE6A0 /* SGAbstractRequest.m */,
+				661C371316A872C3000FE6A0 /* SGRequestOperation.h */,
+				661C371416A872C3000FE6A0 /* SGRequestOperation.m */,
+				6653E95E16ADCF32001A6717 /* SGArticleRequest.h */,
+				6653E95F16ADCF32001A6717 /* SGArticleRequest.m */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		669584B716A304E4003CD021 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				661C371216A8728D000FE6A0 /* Request */,
 				669584B916A30532003CD021 /* SGPageModelController.h */,
 				669584BA16A30532003CD021 /* SGPageModelController.m */,
 				66C043A916A34CAC0094C446 /* SGBaseArticle.h */,
@@ -147,6 +181,8 @@
 		66F2E71B16A158E1006C5D22 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6653E96316ADD0A8001A6717 /* SystemConfiguration.framework */,
+				6653E96116ADD06F001A6717 /* Security.framework */,
 				66C043B116A474B30094C446 /* QuartzCore.framework */,
 				66F2E71C16A158E1006C5D22 /* UIKit.framework */,
 				66F2E71E16A158E1006C5D22 /* Foundation.framework */,
@@ -339,6 +375,10 @@
 				66BBFC5D16A3215F0017439E /* NSString+Coding.m in Sources */,
 				66C043AB16A34CAC0094C446 /* SGBaseArticle.m in Sources */,
 				661C370C16A86A6D000FE6A0 /* SGNewsArticle.m in Sources */,
+				661C371516A872C3000FE6A0 /* SGRequestOperation.m in Sources */,
+				661C371816A8734A000FE6A0 /* SGAbstractRequest.m in Sources */,
+				6653E95C16ADC7C8001A6717 /* SGRequestManager.m in Sources */,
+				6653E96016ADCF32001A6717 /* SGArticleRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,11 @@
 @synthesize title = _title;
 @synthesize publishDate = _publishDate;
 @synthesize text = _text;
-@synthesize active = _active;
+
+#pragma mark Public Methods
+- (void)updateWithServedJson:(NSDictionary *)json
+{
+	//Override
+}
 
 @end

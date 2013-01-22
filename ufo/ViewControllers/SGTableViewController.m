@@ -9,9 +9,11 @@
 #import "SGTableViewController.h"
 #import "SGArticleCell.h"
 #import "SGBaseArticle.h"
+#import "SGRequestManager.h"
+#import "SGArticleRequest.h"
 
 @interface SGTableViewController ()
-
+- (void)loadData;
 @end
 
 @implementation SGTableViewController
@@ -87,6 +89,15 @@
 - (void)refresh:(id)sender
 {
 	self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Refreshing"];
+	
+	[self loadData];
+}
+
+#pragma mark Private
+
+- (void)loadData
+{
+	[SGRequestManager.shared loadRequestInArticleQueue:SGArticleRequest.alloc.initNewsArticles prioritized:NO];
 }
 
 @end
