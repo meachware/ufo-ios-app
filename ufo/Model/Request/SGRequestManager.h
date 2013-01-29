@@ -42,9 +42,7 @@ typedef enum
 - (SMNetworkStatus)networkStatus;
 - (BOOL)isNetworkAvailableForRequest:(SGAbstractRequest *)request withAlert:(BOOL)alert;
 - (void)networkRequest:(SGAbstractRequest *)request timedOutWithAlert:(BOOL)alert;
-
-- (void)loadRequestInArticleQueue:(SGArticleRequest *)request prioritized:(BOOL)priority;	// NSOperationQueuePriorityNormal | NSOperationQueuePriorityVeryHigh
-
+- (void)loadRequestInArticleQueue:(SGArticleRequest *)request prioritized:(BOOL)priority;
 /*
 - (void)loadRequestInImageQueue:(SGImageRequest *)request prioritized:(BOOL)priority;		// NSOperationQueuePriorityLow | NSOperationQueuePriorityHigh
 */
