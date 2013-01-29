@@ -102,8 +102,6 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 {
 	return ^(SGArticleRequest * request, id json) {
 		
-		[SGDataManager.shared deleteAllArticles];
-		
 		for (NSDictionary * dic in json)
 		{
 			[SGDataManager.shared saveArticleFromJson:dic];

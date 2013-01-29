@@ -29,6 +29,5 @@
 
 - (void)saveContext;
 - (void)saveArticleFromJson:(NSDictionary *)json;
-- (NSArray *)allArticles;
-- (void)deleteAllArticles;
+
 @end

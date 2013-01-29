@@ -134,6 +134,13 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		660332B616B860330022F831 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
 		661C371216A8728D000FE6A0 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +159,7 @@
 		669584B716A304E4003CD021 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				660332B616B860330022F831 /* ManagedObjects */,
 				660332A016B84C830022F831 /* Manager */,
 				661C371216A8728D000FE6A0 /* Request */,
 				669584B916A30532003CD021 /* SGPageModelController.h */,

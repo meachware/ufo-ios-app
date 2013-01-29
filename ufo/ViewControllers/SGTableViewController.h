@@ -12,14 +12,17 @@
 
 typedef void (^SelectArticleProvider)(SGBaseArticle * article);
 
-@interface SGTableViewController : UITableViewController
+@interface SGTableViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 {
 @private
 	SelectArticleProvider _selectArticleProvider;
-	NSArray * _articles;
+	NSManagedObjectContext * _managedObjectContext;
+	NSFetchedResultsController * _fetchedResultsController;
 }
 
 @property (nonatomic, copy) SelectArticleProvider selectArticleProvider;
-@property (nonatomic, readonly, strong) NSArray * articles;
+@property (nonatomic, strong) NSManagedObjectContext * managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController * fetchedResultsController;
+
 
 @end

@@ -80,29 +80,6 @@
 	}
 }
 
-- (NSArray *)allArticles
-{
-	NSManagedObjectContext * context = [self managedObjectContext];
-	
-	NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
-	NSEntityDescription * entity = [NSEntityDescription entityForName:@"SGBaseArticle" inManagedObjectContext:context];
-	[fetchRequest setEntity:entity];
-	
-	NSError * error;
-	NSArray * fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-	
-	return fetchedObjects;
-}
-
-- (void)deleteAllArticles
-{
-	for (NSManagedObject * mo in [self allArticles])
-	{
-		[self.managedObjectContext deleteObject:mo];
-		[self saveContext];
-	}
-}
-
 #pragma mark - Core Data stack
 
 - (NSManagedObjectContext *)managedObjectContext
