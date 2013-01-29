@@ -8,6 +8,9 @@
 
 #import "SGArticleRequest.h"
 #import "SGNewsArticle.h"
+#import "SGDataManager.h"
+
+NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 
 @interface SGArticleRequest ()
 - (id)initWithHost:(NSString *)host path:(NSString *)path;
@@ -99,11 +102,16 @@
 {
 	return ^(SGArticleRequest * request, id json) {
 		
+		[SGDataManager.shared deleteAllArticles];
+		
 		for (NSDictionary * dic in json)
 		{
-			SGNewsArticle * article = SGNewsArticle.alloc.init;
-			[article updateWithServedJson:dic];
+			[SGDataManager.shared saveArticleFromJson:dic];
 		}
+		
+		dispatch_async(dispatch_get_main_queue(), ^{
+			[NSNotificationCenter.defaultCenter postNotificationName:kSGNewsArticlesChanged object:self];
+		});
 		
 		return YES;
 	};

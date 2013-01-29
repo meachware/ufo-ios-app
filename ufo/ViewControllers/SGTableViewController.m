@@ -11,6 +11,7 @@
 #import "SGBaseArticle.h"
 #import "SGRequestManager.h"
 #import "SGArticleRequest.h"
+#import "SGDataManager.h"
 
 @interface SGTableViewController ()
 - (void)loadData;
@@ -32,6 +33,8 @@
 		self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull to refresh"];
 		[self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
 		
+		[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(updateData) name:kSGNewsArticlesChanged object:nil];
+		
     }
     return self;
 }
@@ -42,6 +45,8 @@
 	
 	self.tableView.backgroundColor = nil;
 	self.tableView.backgroundView = nil;
+	
+	_articles = [SGDataManager.shared allArticles];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,11 +69,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString * CellIdentifier = @"Cell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
 	SGBaseArticle * article = [_articles objectAtIndex:indexPath.row];
 	
+	cell.textLabel.textColor = [UIColor blackColor];
 	cell.textLabel.text = article.title;
 	
     return cell;
@@ -80,7 +86,9 @@
 {
     if (_selectArticleProvider)
 	{
-		_selectArticleProvider(SGBaseArticle.alloc.init);
+		SGBaseArticle * article = [_articles objectAtIndex:indexPath.row];
+		
+		_selectArticleProvider(article);
 	}
 }
 
@@ -98,6 +106,16 @@
 - (void)loadData
 {
 	[SGRequestManager.shared loadRequestInArticleQueue:SGArticleRequest.alloc.initNewsArticles prioritized:NO];
+}
+
+- (void)updateData
+{
+	_articles = [SGDataManager.shared allArticles];
+	
+	[self.tableView reloadData];
+	[self.refreshControl endRefreshing];
+	
+	self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull To Refresh"];
 }
 
 @end

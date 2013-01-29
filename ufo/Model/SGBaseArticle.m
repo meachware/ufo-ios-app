@@ -2,22 +2,18 @@
 //  SGBaseArticle.m
 //  ufo
 //
-//  Created by SandGro on 13-01-13.
+//  Created by SandGro on 29-01-13.
 //  Copyright (c) 2013 iOnyo. All rights reserved.
 //
 
 #import "SGBaseArticle.h"
 
+
 @implementation SGBaseArticle
 
-@synthesize title = _title;
-@synthesize publishDate = _publishDate;
-@synthesize text = _text;
-
-#pragma mark Public Methods
-- (void)updateWithServedJson:(NSDictionary *)json
-{
-	//Override
-}
+@dynamic title;
+@dynamic publishDate;
+@dynamic text;
+@dynamic identifier;
 
 @end

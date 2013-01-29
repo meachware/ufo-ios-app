@@ -8,6 +8,8 @@
 
 #import "SGAbstractRequest.h"
 
+extern NSString * kSGNewsArticlesChanged;
+
 @class SGArticleRequest;
 
 typedef BOOL (^SGJsonRequestFinished)(SGArticleRequest * request, id json);

@@ -2,25 +2,19 @@
 //  SGBaseArticle.h
 //  ufo
 //
-//  Created by SandGro on 13-01-13.
+//  Created by SandGro on 29-01-13.
 //  Copyright (c) 2013 iOnyo. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface SGBaseArticle : NSObject
-{
-@protected
-	NSString * _title;
-	NSDate * _publishDate;
-	NSString * _text;
-}
 
-@property (nonatomic, readonly, strong) NSString * title;
-@property (nonatomic, readonly, strong) NSDate * publishDate;
-@property (nonatomic, readonly, strong) NSString * text;
+@interface SGBaseArticle : NSManagedObject
 
-#pragma mark Public Methods
-- (void)updateWithServedJson:(NSDictionary *)json;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSDate * publishDate;
+@property (nonatomic, retain) NSString * text;
+@property (nonatomic, retain) NSNumber * identifier;
 
 @end
