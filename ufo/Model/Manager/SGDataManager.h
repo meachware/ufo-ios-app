@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class SGBaseArticle;
-
 @interface SGDataManager : NSObject
 {
 @private
@@ -28,6 +26,5 @@
 #pragma mark Public Methods
 
 - (void)saveContext;
-- (void)saveArticleFromJson:(NSDictionary *)json;
 
 @end

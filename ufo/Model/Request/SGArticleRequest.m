@@ -9,6 +9,7 @@
 #import "SGArticleRequest.h"
 #import "SGNewsArticle.h"
 #import "SGDataManager.h"
+#import "NSDictionary+Json.h"
 
 NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 
@@ -104,7 +105,18 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 		
 		for (NSDictionary * dic in json)
 		{
-			[SGDataManager.shared saveArticleFromJson:dic];
+			NSManagedObjectContext * context = [SGDataManager.shared managedObjectContext];
+			SGNewsArticle * article = [NSEntityDescription insertNewObjectForEntityForName:@"SGNewsArticle" inManagedObjectContext:context];
+			article.identifier = [NSNumber numberWithInt:[dic integerForTestedKey:@"id"]];
+			article.title = [dic stringForKey:@"title"];
+			article.text = [dic stringForKey:@"text"];
+			article.publishDate = [dic dateForTestedKey:@"publish_date"];
+			
+			NSError * error;
+			if (![context save:&error])
+			{
+				NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
+			}
 		}
 		
 		dispatch_async(dispatch_get_main_queue(), ^{

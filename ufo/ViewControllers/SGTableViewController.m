@@ -202,7 +202,7 @@
 
 - (void)updateData
 {
-	NSError *error;
+	NSError * error;
 	if (![[self fetchedResultsController] performFetch:&error])
 	{
 		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);

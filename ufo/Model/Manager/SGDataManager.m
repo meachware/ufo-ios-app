@@ -7,8 +7,6 @@
 //
 
 #import "SGDataManager.h"
-#import "SGBaseArticle.h"
-#import "NSDictionary+Json.h"
 
 @interface SGDataManager ()
 - (NSURL *)applicationDocumentsDirectory;
@@ -62,22 +60,6 @@
             abort();
         }
     }
-}
-
-- (void)saveArticleFromJson:(NSDictionary *)json
-{
-	NSManagedObjectContext * context = [self managedObjectContext];
-	SGBaseArticle * article = [NSEntityDescription insertNewObjectForEntityForName:@"SGBaseArticle" inManagedObjectContext:context];
-	article.identifier = [NSNumber numberWithInt:[json integerForTestedKey:@"id"]];
-	article.title = [json stringForKey:@"title"];
-	article.text = [json stringForKey:@"text"];
-	article.publishDate = [json dateForTestedKey:@"publish_date"];
-	
-	NSError * error;
-	if (![context save:&error])
-	{
-		NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-	}
 }
 
 #pragma mark - Core Data stack
