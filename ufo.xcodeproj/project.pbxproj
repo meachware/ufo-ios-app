@@ -20,6 +20,8 @@
 		66BBFC5B16A3215F0017439E /* NSData+Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5616A3215F0017439E /* NSData+Coding.m */; };
 		66BBFC5C16A3215F0017439E /* NSDate+ISO8601.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5816A3215F0017439E /* NSDate+ISO8601.m */; };
 		66BBFC5D16A3215F0017439E /* NSString+Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5A16A3215F0017439E /* NSString+Coding.m */; };
+		66BC1D8F16AF2806005BE500 /* SGJsonDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BC1D8E16AF2806005BE500 /* SGJsonDocument.m */; };
+		66BC1D9216AF2829005BE500 /* SGNewsArticleDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BC1D9116AF2829005BE500 /* SGNewsArticleDocument.m */; };
 		66C043AB16A34CAC0094C446 /* SGBaseArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C043AA16A34CAC0094C446 /* SGBaseArticle.m */; };
 		66C043B216A474B30094C446 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C043B116A474B30094C446 /* QuartzCore.framework */; };
 		66F2E71D16A158E1006C5D22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F2E71C16A158E1006C5D22 /* UIKit.framework */; };
@@ -68,6 +70,10 @@
 		66BBFC5816A3215F0017439E /* NSDate+ISO8601.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+ISO8601.m"; sourceTree = "<group>"; };
 		66BBFC5916A3215F0017439E /* NSString+Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Coding.h"; sourceTree = "<group>"; };
 		66BBFC5A16A3215F0017439E /* NSString+Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coding.m"; sourceTree = "<group>"; };
+		66BC1D8D16AF2806005BE500 /* SGJsonDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGJsonDocument.h; sourceTree = "<group>"; };
+		66BC1D8E16AF2806005BE500 /* SGJsonDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGJsonDocument.m; sourceTree = "<group>"; };
+		66BC1D9016AF2829005BE500 /* SGNewsArticleDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGNewsArticleDocument.h; sourceTree = "<group>"; };
+		66BC1D9116AF2829005BE500 /* SGNewsArticleDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGNewsArticleDocument.m; sourceTree = "<group>"; };
 		66C043A916A34CAC0094C446 /* SGBaseArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseArticle.h; sourceTree = "<group>"; };
 		66C043AA16A34CAC0094C446 /* SGBaseArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseArticle.m; sourceTree = "<group>"; };
 		66C043B116A474B30094C446 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -135,6 +141,7 @@
 		669584B716A304E4003CD021 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				66BC1D8C16AF27C9005BE500 /* Document */,
 				661C371216A8728D000FE6A0 /* Request */,
 				669584B916A30532003CD021 /* SGPageModelController.h */,
 				669584BA16A30532003CD021 /* SGPageModelController.m */,
@@ -159,6 +166,17 @@
 				66BBFC5316A321330017439E /* NSDictionary+Json.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		66BC1D8C16AF27C9005BE500 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				66BC1D8D16AF2806005BE500 /* SGJsonDocument.h */,
+				66BC1D8E16AF2806005BE500 /* SGJsonDocument.m */,
+				66BC1D9016AF2829005BE500 /* SGNewsArticleDocument.h */,
+				66BC1D9116AF2829005BE500 /* SGNewsArticleDocument.m */,
+			);
+			path = Document;
 			sourceTree = "<group>";
 		};
 		66F2E70D16A158E1006C5D22 = {
@@ -379,6 +397,8 @@
 				661C371816A8734A000FE6A0 /* SGAbstractRequest.m in Sources */,
 				6653E95C16ADC7C8001A6717 /* SGRequestManager.m in Sources */,
 				6653E96016ADCF32001A6717 /* SGArticleRequest.m in Sources */,
+				66BC1D8F16AF2806005BE500 /* SGJsonDocument.m in Sources */,
+				66BC1D9216AF2829005BE500 /* SGNewsArticleDocument.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
