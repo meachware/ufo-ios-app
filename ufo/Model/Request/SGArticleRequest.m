@@ -112,6 +112,7 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 			article.title = [dic stringForKey:@"title"];
 			article.text = [dic stringForKey:@"text"];
 			article.publishDate = [dic dateForTestedKey:@"publish_date"];
+			article.thumbUrl = [dic stringForKey:@"thumb"];
 			
 			NSError * error;
 			if (![context save:&error])

@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		6603329316B840E50022F831 /* ufo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6603329116B840E50022F831 /* ufo.xcdatamodeld */; };
-		6603329C16B841A20022F831 /* SGNewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6603329B16B841A20022F831 /* SGNewsArticle.m */; };
 		660332A316B84CAD0022F831 /* SGDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 660332A216B84CAD0022F831 /* SGDataManager.m */; };
-		660332B516B859E00022F831 /* SGBaseArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 660332B416B859E00022F831 /* SGBaseArticle.m */; };
 		661C371516A872C3000FE6A0 /* SGRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 661C371416A872C3000FE6A0 /* SGRequestOperation.m */; };
 		661C371816A8734A000FE6A0 /* SGAbstractRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 661C371716A8734A000FE6A0 /* SGAbstractRequest.m */; };
 		6653E95C16ADC7C8001A6717 /* SGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653E95B16ADC7C8001A6717 /* SGRequestManager.m */; };
@@ -24,6 +22,12 @@
 		66BBFC5C16A3215F0017439E /* NSDate+ISO8601.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5816A3215F0017439E /* NSDate+ISO8601.m */; };
 		66BBFC5D16A3215F0017439E /* NSString+Coding.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5A16A3215F0017439E /* NSString+Coding.m */; };
 		66C043B216A474B30094C446 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66C043B116A474B30094C446 /* QuartzCore.framework */; };
+		66C81ECF16C02E6000CD17E8 /* SGImageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81ECE16C02E6000CD17E8 /* SGImageRequest.m */; };
+		66C81ED216C0363100CD17E8 /* SGBaseArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81ED116C0363100CD17E8 /* SGBaseArticle.m */; };
+		66C81ED516C0363100CD17E8 /* SGNewsArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81ED416C0363100CD17E8 /* SGNewsArticle.m */; };
+		66C81ED816C0363100CD17E8 /* SGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81ED716C0363100CD17E8 /* SGImage.m */; };
+		66C81EDB16C0370100CD17E8 /* SGImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EDA16C0370100CD17E8 /* SGImageLoader.m */; };
+		66C81EDF16C0380300CD17E8 /* SGImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EDE16C0380300CD17E8 /* SGImageData.m */; };
 		66EB4EA116B83CB400704A98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EB4EA016B83CB400704A98 /* CoreData.framework */; };
 		66F2E71D16A158E1006C5D22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F2E71C16A158E1006C5D22 /* UIKit.framework */; };
 		66F2E71F16A158E1006C5D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F2E71E16A158E1006C5D22 /* Foundation.framework */; };
@@ -48,12 +52,8 @@
 
 /* Begin PBXFileReference section */
 		6603329216B840E50022F831 /* ufo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ufo.xcdatamodel; sourceTree = "<group>"; };
-		6603329A16B841A20022F831 /* SGNewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGNewsArticle.h; sourceTree = "<group>"; };
-		6603329B16B841A20022F831 /* SGNewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGNewsArticle.m; sourceTree = "<group>"; };
 		660332A116B84CAD0022F831 /* SGDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGDataManager.h; sourceTree = "<group>"; };
 		660332A216B84CAD0022F831 /* SGDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGDataManager.m; sourceTree = "<group>"; };
-		660332B316B859E00022F831 /* SGBaseArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseArticle.h; sourceTree = "<group>"; };
-		660332B416B859E00022F831 /* SGBaseArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseArticle.m; sourceTree = "<group>"; };
 		661C371316A872C3000FE6A0 /* SGRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRequestOperation.h; sourceTree = "<group>"; };
 		661C371416A872C3000FE6A0 /* SGRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGRequestOperation.m; sourceTree = "<group>"; };
 		661C371616A8734A000FE6A0 /* SGAbstractRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGAbstractRequest.h; sourceTree = "<group>"; };
@@ -77,6 +77,18 @@
 		66BBFC5916A3215F0017439E /* NSString+Coding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Coding.h"; sourceTree = "<group>"; };
 		66BBFC5A16A3215F0017439E /* NSString+Coding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Coding.m"; sourceTree = "<group>"; };
 		66C043B116A474B30094C446 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		66C81ECD16C02E6000CD17E8 /* SGImageRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageRequest.h; sourceTree = "<group>"; };
+		66C81ECE16C02E6000CD17E8 /* SGImageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageRequest.m; sourceTree = "<group>"; };
+		66C81ED016C0363100CD17E8 /* SGBaseArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBaseArticle.h; sourceTree = "<group>"; };
+		66C81ED116C0363100CD17E8 /* SGBaseArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBaseArticle.m; sourceTree = "<group>"; };
+		66C81ED316C0363100CD17E8 /* SGNewsArticle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGNewsArticle.h; sourceTree = "<group>"; };
+		66C81ED416C0363100CD17E8 /* SGNewsArticle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGNewsArticle.m; sourceTree = "<group>"; };
+		66C81ED616C0363100CD17E8 /* SGImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImage.h; sourceTree = "<group>"; };
+		66C81ED716C0363100CD17E8 /* SGImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImage.m; sourceTree = "<group>"; };
+		66C81ED916C0370100CD17E8 /* SGImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageLoader.h; sourceTree = "<group>"; };
+		66C81EDA16C0370100CD17E8 /* SGImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageLoader.m; sourceTree = "<group>"; };
+		66C81EDD16C0380300CD17E8 /* SGImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageData.h; sourceTree = "<group>"; };
+		66C81EDE16C0380300CD17E8 /* SGImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageData.m; sourceTree = "<group>"; };
 		66EB4EA016B83CB400704A98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		66F2E71816A158E1006C5D22 /* ufo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ufo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F2E71C16A158E1006C5D22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -130,6 +142,8 @@
 			children = (
 				660332A116B84CAD0022F831 /* SGDataManager.h */,
 				660332A216B84CAD0022F831 /* SGDataManager.m */,
+				66C81ED916C0370100CD17E8 /* SGImageLoader.h */,
+				66C81EDA16C0370100CD17E8 /* SGImageLoader.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -137,8 +151,14 @@
 		660332B616B860330022F831 /* ManagedObjects */ = {
 			isa = PBXGroup;
 			children = (
+				66C81ED616C0363100CD17E8 /* SGImage.h */,
+				66C81ED716C0363100CD17E8 /* SGImage.m */,
+				66C81ED316C0363100CD17E8 /* SGNewsArticle.h */,
+				66C81ED416C0363100CD17E8 /* SGNewsArticle.m */,
+				66C81ED016C0363100CD17E8 /* SGBaseArticle.h */,
+				66C81ED116C0363100CD17E8 /* SGBaseArticle.m */,
 			);
-			name = ManagedObjects;
+			path = ManagedObjects;
 			sourceTree = "<group>";
 		};
 		661C371216A8728D000FE6A0 /* Request */ = {
@@ -152,6 +172,8 @@
 				661C371416A872C3000FE6A0 /* SGRequestOperation.m */,
 				6653E95E16ADCF32001A6717 /* SGArticleRequest.h */,
 				6653E95F16ADCF32001A6717 /* SGArticleRequest.m */,
+				66C81ECD16C02E6000CD17E8 /* SGImageRequest.h */,
+				66C81ECE16C02E6000CD17E8 /* SGImageRequest.m */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -159,16 +181,13 @@
 		669584B716A304E4003CD021 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				66C81EDC16C037D100CD17E8 /* ModelObjects */,
 				660332B616B860330022F831 /* ManagedObjects */,
 				660332A016B84C830022F831 /* Manager */,
 				661C371216A8728D000FE6A0 /* Request */,
 				669584B916A30532003CD021 /* SGPageModelController.h */,
 				669584BA16A30532003CD021 /* SGPageModelController.m */,
 				6603329116B840E50022F831 /* ufo.xcdatamodeld */,
-				6603329A16B841A20022F831 /* SGNewsArticle.h */,
-				6603329B16B841A20022F831 /* SGNewsArticle.m */,
-				660332B316B859E00022F831 /* SGBaseArticle.h */,
-				660332B416B859E00022F831 /* SGBaseArticle.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -186,6 +205,15 @@
 				66BBFC5316A321330017439E /* NSDictionary+Json.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		66C81EDC16C037D100CD17E8 /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				66C81EDD16C0380300CD17E8 /* SGImageData.h */,
+				66C81EDE16C0380300CD17E8 /* SGImageData.m */,
+			);
+			path = ModelObjects;
 			sourceTree = "<group>";
 		};
 		66F2E70D16A158E1006C5D22 = {
@@ -406,9 +434,13 @@
 				6653E95C16ADC7C8001A6717 /* SGRequestManager.m in Sources */,
 				6653E96016ADCF32001A6717 /* SGArticleRequest.m in Sources */,
 				6603329316B840E50022F831 /* ufo.xcdatamodeld in Sources */,
-				6603329C16B841A20022F831 /* SGNewsArticle.m in Sources */,
 				660332A316B84CAD0022F831 /* SGDataManager.m in Sources */,
-				660332B516B859E00022F831 /* SGBaseArticle.m in Sources */,
+				66C81ECF16C02E6000CD17E8 /* SGImageRequest.m in Sources */,
+				66C81ED216C0363100CD17E8 /* SGBaseArticle.m in Sources */,
+				66C81ED516C0363100CD17E8 /* SGNewsArticle.m in Sources */,
+				66C81ED816C0363100CD17E8 /* SGImage.m in Sources */,
+				66C81EDB16C0370100CD17E8 /* SGImageLoader.m in Sources */,
+				66C81EDF16C0380300CD17E8 /* SGImageData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
