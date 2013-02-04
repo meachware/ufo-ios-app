@@ -103,10 +103,11 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 {
 	return ^(SGArticleRequest * request, id json) {
 		
+		NSManagedObjectContext * context = [SGDataManager.shared managedObjectContext];
+		
 		for (NSDictionary * dic in json)
 		{
-			NSManagedObjectContext * context = [SGDataManager.shared managedObjectContext];
-			SGNewsArticle * article = [NSEntityDescription insertNewObjectForEntityForName:@"SGNewsArticle" inManagedObjectContext:context];
+			SGNewsArticle * article = [NSEntityDescription insertNewObjectForEntityForName:@"SGBaseArticle" inManagedObjectContext:context];
 			article.identifier = [NSNumber numberWithInt:[dic integerForTestedKey:@"id"]];
 			article.title = [dic stringForKey:@"title"];
 			article.text = [dic stringForKey:@"text"];

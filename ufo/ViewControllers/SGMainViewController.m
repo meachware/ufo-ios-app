@@ -94,11 +94,13 @@
 {
 	if (pendingViewControllers.count == 1)
 	{
+		__weak SGMainViewController * me = self;
+		
 		_currentViewController = [pendingViewControllers objectAtIndex:0];
 		[_currentViewController setSelectArticleProvider:^(SGBaseArticle * article){
-			NSLog(@"Select");
 			
-			[self.view animateDown];
+			
+			[me.view animateDown];
 		}];
 	}
 }

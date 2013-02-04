@@ -209,7 +209,6 @@
 	}
 	
 	[self.refreshControl endRefreshing];
-	
 	self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull To Refresh"];
 }
 

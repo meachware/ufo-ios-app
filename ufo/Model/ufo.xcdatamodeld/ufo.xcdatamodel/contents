@@ -8,7 +8,7 @@
     </entity>
     <entity name="SGNewsArticle" representedClassName="SGNewsArticle" syncable="YES"/>
     <elements>
-        <element name="SGBaseArticle" positionX="160" positionY="192" width="128" height="105"/>
-        <element name="SGNewsArticle" positionX="160" positionY="192" width="128" height="45"/>
+        <element name="SGBaseArticle" positionX="160" positionY="192" width="128" height="103"/>
+        <element name="SGNewsArticle" positionX="171" positionY="396" width="128" height="43"/>
     </elements>
 </model>
