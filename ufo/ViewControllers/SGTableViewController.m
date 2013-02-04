@@ -177,11 +177,11 @@
 	}
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(SGArticleCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SGBaseArticle * article = [_fetchedResultsController objectAtIndexPath:indexPath];
     
-	cell.textLabel.text = article.title;
+	cell.article = article;
 }
 
 #pragma mark Actions

@@ -7,6 +7,7 @@
 //
 
 #import "SGImageRequest.h"
+#import "SGImageFormat.h"
 
 @implementation SGImageRequest
 
@@ -46,6 +47,18 @@
 		
 		if (httpResponse.statusCode == 200 && data.length > 0)
 		{
+			NSString * mimeType = [httpResponse.allHeaderFields objectForKey:@"MIME type"];
+			if (!mimeType)
+			{
+				mimeType = [httpResponse.allHeaderFields objectForKey:@"Content-Type"];
+			}
+			
+			SGImageFormat * format = [SGImageFormat formatByMimeType:mimeType];
+			if (!format)
+			{
+				NSLog(@"Unknown image type; %@", mimeType);
+			}
+			
 			UIImage * image = [UIImage.alloc initWithData:data];
 			
 			if (_imageRequestFinished)

@@ -166,9 +166,12 @@
 
 - (void)loadRequestInArticleQueue:(SGArticleRequest *)request prioritized:(BOOL)priority
 {
-	NSLog(@"Load content %@", request.URL);
-	
 	[SGRequestOperation startWithRequest:request queue:_requestQueue priority:priority ? NSOperationQueuePriorityVeryHigh : NSOperationQueuePriorityNormal];
+}
+
+- (void)loadRequestInImageQueue:(SGImageRequest *)request prioritized:(BOOL)priority
+{
+	[SGRequestOperation startWithRequest:request queue:_requestQueue priority:priority ? NSOperationQueuePriorityHigh : NSOperationQueuePriorityLow];
 }
 
 

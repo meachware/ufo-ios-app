@@ -28,6 +28,9 @@
 		66C81ED816C0363100CD17E8 /* SGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81ED716C0363100CD17E8 /* SGImage.m */; };
 		66C81EDB16C0370100CD17E8 /* SGImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EDA16C0370100CD17E8 /* SGImageLoader.m */; };
 		66C81EDF16C0380300CD17E8 /* SGImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EDE16C0380300CD17E8 /* SGImageData.m */; };
+		66C81EE216C0442B00CD17E8 /* SGImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EE116C0442B00CD17E8 /* SGImageView.m */; };
+		66C81EE516C055B700CD17E8 /* SGImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EE416C055B700CD17E8 /* SGImageCache.m */; };
+		66C81EE816C0580F00CD17E8 /* SGImageFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C81EE716C0580F00CD17E8 /* SGImageFormat.m */; };
 		66EB4EA116B83CB400704A98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66EB4EA016B83CB400704A98 /* CoreData.framework */; };
 		66F2E71D16A158E1006C5D22 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F2E71C16A158E1006C5D22 /* UIKit.framework */; };
 		66F2E71F16A158E1006C5D22 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66F2E71E16A158E1006C5D22 /* Foundation.framework */; };
@@ -89,6 +92,12 @@
 		66C81EDA16C0370100CD17E8 /* SGImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageLoader.m; sourceTree = "<group>"; };
 		66C81EDD16C0380300CD17E8 /* SGImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageData.h; sourceTree = "<group>"; };
 		66C81EDE16C0380300CD17E8 /* SGImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageData.m; sourceTree = "<group>"; };
+		66C81EE016C0442B00CD17E8 /* SGImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageView.h; sourceTree = "<group>"; };
+		66C81EE116C0442B00CD17E8 /* SGImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageView.m; sourceTree = "<group>"; };
+		66C81EE316C055B600CD17E8 /* SGImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageCache.h; sourceTree = "<group>"; };
+		66C81EE416C055B700CD17E8 /* SGImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageCache.m; sourceTree = "<group>"; };
+		66C81EE616C0580F00CD17E8 /* SGImageFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGImageFormat.h; sourceTree = "<group>"; };
+		66C81EE716C0580F00CD17E8 /* SGImageFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGImageFormat.m; sourceTree = "<group>"; };
 		66EB4EA016B83CB400704A98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		66F2E71816A158E1006C5D22 /* ufo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ufo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F2E71C16A158E1006C5D22 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -144,6 +153,8 @@
 				660332A216B84CAD0022F831 /* SGDataManager.m */,
 				66C81ED916C0370100CD17E8 /* SGImageLoader.h */,
 				66C81EDA16C0370100CD17E8 /* SGImageLoader.m */,
+				66C81EE316C055B600CD17E8 /* SGImageCache.h */,
+				66C81EE416C055B700CD17E8 /* SGImageCache.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -212,6 +223,8 @@
 			children = (
 				66C81EDD16C0380300CD17E8 /* SGImageData.h */,
 				66C81EDE16C0380300CD17E8 /* SGImageData.m */,
+				66C81EE616C0580F00CD17E8 /* SGImageFormat.h */,
+				66C81EE716C0580F00CD17E8 /* SGImageFormat.m */,
 			);
 			path = ModelObjects;
 			sourceTree = "<group>";
@@ -295,6 +308,8 @@
 				66F2E74316A15F03006C5D22 /* SGMainControllerView.m */,
 				66BBFC4A16A3153D0017439E /* SGPageControlView.h */,
 				66BBFC4B16A3153D0017439E /* SGPageControlView.m */,
+				66C81EE016C0442B00CD17E8 /* SGImageView.h */,
+				66C81EE116C0442B00CD17E8 /* SGImageView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -441,6 +456,9 @@
 				66C81ED816C0363100CD17E8 /* SGImage.m in Sources */,
 				66C81EDB16C0370100CD17E8 /* SGImageLoader.m in Sources */,
 				66C81EDF16C0380300CD17E8 /* SGImageData.m in Sources */,
+				66C81EE216C0442B00CD17E8 /* SGImageView.m in Sources */,
+				66C81EE516C055B700CD17E8 /* SGImageCache.m in Sources */,
+				66C81EE816C0580F00CD17E8 /* SGImageFormat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

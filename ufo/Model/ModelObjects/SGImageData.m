@@ -13,6 +13,16 @@
 @synthesize path = _path;
 @synthesize cacheKey = _cacheKey;
 
+-(id)initWithPath:(NSString *)path
+{
+	self = [super init];
+	if (self)
+	{
+		_path = path;
+	}
+	return self;
+}
+
 - (NSString *)cacheKey
 {
 	return [_path lastPathComponent];

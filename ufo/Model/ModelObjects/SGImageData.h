@@ -18,4 +18,6 @@
 @property (nonatomic, readonly, strong) NSString * path;
 @property (nonatomic, readonly, strong) NSString * cacheKey;
 
+-(id)initWithPath:(NSString *)path;
+
 @end

@@ -9,6 +9,7 @@
 #import <netinet/in.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 #import "SGRequestOperation.h"
+#import "SGImageRequest.h"
 
 @class SGArticleRequest;
 
@@ -43,9 +44,8 @@ typedef enum
 - (BOOL)isNetworkAvailableForRequest:(SGAbstractRequest *)request withAlert:(BOOL)alert;
 - (void)networkRequest:(SGAbstractRequest *)request timedOutWithAlert:(BOOL)alert;
 - (void)loadRequestInArticleQueue:(SGArticleRequest *)request prioritized:(BOOL)priority;
-/*
-- (void)loadRequestInImageQueue:(SGImageRequest *)request prioritized:(BOOL)priority;		// NSOperationQueuePriorityLow | NSOperationQueuePriorityHigh
-*/
+- (void)loadRequestInImageQueue:(SGImageRequest *)request prioritized:(BOOL)priority;
+
 - (void)cancelRequest:(SGAbstractRequest *)request;
 
 @end

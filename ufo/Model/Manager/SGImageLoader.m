@@ -11,10 +11,20 @@
 #import "SGImage.h"
 #import "SGImageData.h"
 #import "SGDataManager.h"
+#import "SGRequestManager.h"
+#import "SGImageCache.h"
 
 @implementation SGImageLoader
 
+#pragma mark Properties
+
 @synthesize imageData = _imageData;
+@synthesize waiting = _waiting;
+@synthesize loading = _loading;
+@synthesize loaded = _loaded;
+@synthesize failed = _failed;
+
+#pragma mark Initializer
 
 - (id)initWithImageData:(SGImageData *)imageData
 {
@@ -30,7 +40,15 @@
 
 - (void)start
 {
-	[self requestImage];
+	UIImage * cachedImage = [SGImageCache.shared imageFromCacheForImageData:_imageData];
+	if (cachedImage)
+	{
+		_loaded(_imageData, cachedImage, YES);
+	}
+	else
+	{
+		[self requestImage];
+	}
 }
 
 #pragma mark Private methods
@@ -39,6 +57,11 @@
 {
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0);
 	dispatch_async(queue, ^{
+		
+		if (_loading)
+		{
+			_loading(_imageData);
+		}
 	
 		SGImageRequest * imageRequest = [SGImageRequest.alloc initWithImageUrl:_imageData.path];
 		imageRequest.imageRequestFinished = ^(SGImageRequest * request, UIImage * image){
@@ -52,13 +75,14 @@
 			NSLog(@"Image request %@ failed (%@).", request.URL, error.localizedDescription);
 		};
 		
+		[SGRequestManager.shared loadRequestInImageQueue:imageRequest prioritized:NO];
 	});
 }
 
 - (void)persistImage:(UIImage *)image
 {
 	NSData * png = UIImagePNGRepresentation(image);
-	NSURL * fileLocation = [[self applicationCacheDirectory] URLByAppendingPathComponent:_imageData.cacheKey];
+	NSURL * fileLocation = [[SGImageCache.shared imageCacheDirectoryForImageData:_imageData] URLByAppendingPathExtension:@"png"];
 	
 	if([png writeToURL:fileLocation atomically:NO])
 	{
@@ -66,6 +90,7 @@
 		
 		SGImage * cachedImage = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
 		cachedImage.location = fileLocation.absoluteString;
+		cachedImage.imageId = _imageData.cacheKey;
 		cachedImage.lastUsed = NSDate.date;
 		
 		NSError * error;
@@ -73,12 +98,16 @@
 		{
 			NSLog(@"Whoops, couldn't save image: %@", [error localizedDescription]);
 		}
+		else
+		{
+			if (_loaded)
+			{
+				_loaded(_imageData, image, NO);
+			}
+		}
 	}
 }
 
-- (NSURL *)applicationCacheDirectory
-{
-    return [[[NSFileManager defaultManager] URLsForDirectory:NSCachesDirectory inDomains:NSUserDomainMask] lastObject];
-}
+
 
 @end
