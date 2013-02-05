@@ -2,7 +2,7 @@
 //  SGImage.m
 //  ufo
 //
-//  Created by SandGro on 04-02-13.
+//  Created by SandGro on 05-02-13.
 //  Copyright (c) 2013 iOnyo. All rights reserved.
 //
 
@@ -11,8 +11,9 @@
 
 @implementation SGImage
 
-@dynamic imageId;
+@dynamic cacheKey;
 @dynamic lastUsed;
 @dynamic location;
+@dynamic type;
 
 @end

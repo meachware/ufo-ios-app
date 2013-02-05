@@ -46,7 +46,7 @@
     [super viewDidLoad];
 	
 	self.tableView.backgroundColor = nil;
-	self.tableView.backgroundView = nil;
+	//self.tableView.backgroundView = nil;
 	
 	_managedObjectContext = [SGDataManager.shared managedObjectContext];
 	
