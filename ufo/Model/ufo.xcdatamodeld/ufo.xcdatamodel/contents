@@ -8,14 +8,15 @@
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SGImage" representedClassName="SGImage" syncable="YES">
-        <attribute name="imageId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cacheKey" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastUsed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="SGNewsArticle" representedClassName="SGNewsArticle" syncable="YES"/>
     <elements>
         <element name="SGBaseArticle" positionX="160" positionY="192" width="128" height="120"/>
+        <element name="SGImage" positionX="160" positionY="192" width="128" height="105"/>
         <element name="SGNewsArticle" positionX="171" positionY="396" width="128" height="43"/>
-        <element name="SGImage" positionX="160" positionY="192" width="128" height="90"/>
     </elements>
 </model>

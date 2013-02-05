@@ -12,13 +12,15 @@
 
 @synthesize path = _path;
 @synthesize cacheKey = _cacheKey;
+@synthesize type = _type;
 
--(id)initWithPath:(NSString *)path
+-(id)initWithPath:(NSString *)path type:(SGImageType *)type
 {
 	self = [super init];
 	if (self)
 	{
 		_path = path;
+		_type = type;
 	}
 	return self;
 }

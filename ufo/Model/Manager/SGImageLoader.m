@@ -13,6 +13,7 @@
 #import "SGDataManager.h"
 #import "SGRequestManager.h"
 #import "SGImageCache.h"
+#import "SGImageType.h"
 
 @implementation SGImageLoader
 
@@ -90,8 +91,9 @@
 		
 		SGImage * cachedImage = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
 		cachedImage.location = fileLocation.absoluteString;
-		cachedImage.imageId = _imageData.cacheKey;
+		cachedImage.cacheKey = _imageData.cacheKey;
 		cachedImage.lastUsed = NSDate.date;
+		cachedImage.type = _imageData.type.code;
 		
 		NSError * error;
 		if (![context save:&error])
