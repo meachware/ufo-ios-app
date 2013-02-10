@@ -73,7 +73,7 @@
     }
 	
     NSFetchRequest * fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription * entity = [NSEntityDescription entityForName:@"SGBaseArticle" inManagedObjectContext:_managedObjectContext];
+    NSEntityDescription * entity = [NSEntityDescription entityForName:@"SGNewsArticle" inManagedObjectContext:_managedObjectContext];
     [fetchRequest setEntity:entity];
 	
     NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"publishDate" ascending:YES];

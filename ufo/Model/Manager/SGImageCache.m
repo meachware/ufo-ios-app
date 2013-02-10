@@ -91,7 +91,10 @@
 	for (SGImage * image in images)
 	{
 		//TODO: Load image in memory or not
-		[_cachedImages setObject:image.location forKey:image.cacheKey];
+		if (image.cacheKey)
+		{
+			[_cachedImages setObject:image.location forKey:image.cacheKey];
+		}
 	}
 }
 

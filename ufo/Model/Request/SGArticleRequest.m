@@ -109,7 +109,7 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 		
 		for (NSDictionary * dic in json)
 		{
-			SGNewsArticle * article = [NSEntityDescription insertNewObjectForEntityForName:@"SGBaseArticle" inManagedObjectContext:context];
+			SGNewsArticle * article = [NSEntityDescription insertNewObjectForEntityForName:@"SGNewsArticle" inManagedObjectContext:context];
 			article.identifier = [NSNumber numberWithInt:[dic integerForTestedKey:@"id"]];
 			article.title = [dic stringForKey:@"title"];
 			article.text = [dic stringForKey:@"text"];
@@ -155,11 +155,9 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 						
 						[gallery addImagesObject:image];
 					}
-					
-					NSLog(@"Added %i images to gallery", gallery.images.count);
-					
-					article.imageGallery = gallery;
 				}
+				
+				article.imageGallery = gallery;
 				
 			}
 			

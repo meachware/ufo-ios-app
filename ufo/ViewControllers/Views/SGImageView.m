@@ -8,6 +8,8 @@
 
 #import "SGImageView.h"
 #import "SGImageLoader.h"
+#import "SGImageType.h"
+#import "SGImageData.h"
 
 @implementation SGImageView
 
@@ -21,6 +23,8 @@
 	if (self)
 	{
 		_imageData = imageData;
+		
+		self.frame = CGRectMake(0, 0, _imageData.type.size.width, _imageData.type.size.height);
 		
 		[self loadImage];
 	}

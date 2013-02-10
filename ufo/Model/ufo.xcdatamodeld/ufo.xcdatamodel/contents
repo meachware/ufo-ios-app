@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C60" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="SGBaseArticle" representedClassName="SGBaseArticle" syncable="YES">
+    <entity name="SGBaseArticle" representedClassName="SGBaseArticle" isAbstract="YES" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="publishDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
@@ -22,7 +22,7 @@
         <relationship name="article" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="SGBaseArticle" inverseName="imageGallery" inverseEntity="SGBaseArticle" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SGImage" inverseName="gallery" inverseEntity="SGImage" syncable="YES"/>
     </entity>
-    <entity name="SGNewsArticle" representedClassName="SGNewsArticle" syncable="YES"/>
+    <entity name="SGNewsArticle" representedClassName="SGNewsArticle" parentEntity="SGBaseArticle" syncable="YES"/>
     <elements>
         <element name="SGBaseArticle" positionX="160" positionY="192" width="128" height="135"/>
         <element name="SGImage" positionX="160" positionY="192" width="128" height="150"/>
