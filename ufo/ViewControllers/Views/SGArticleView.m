@@ -8,11 +8,13 @@
 
 #import "SGArticleView.h"
 #import "SGBaseArticle.h"
+#import "SGMediaGalleryView.h"
 
 @implementation SGArticleView
 
 #pragma mark Properties
 @synthesize article = _article;
+@synthesize mediaGalleryView = _mediaGalleryView;
 @synthesize paragraphTextLabel = _paragraphTextLabel;
 
 - (id)init
@@ -23,6 +25,8 @@
 		_article = nil;
 		
 		self.backgroundColor = UIColor.whiteColor;
+		
+		_mediaGalleryView = [SGMediaGalleryView.alloc initWithFrame:CGRectZero mediaViews:nil];
 		
 		_paragraphTextLabel = UILabel.alloc.init;
 		_paragraphTextLabel.textColor = UIColor.blackColor;

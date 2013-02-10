@@ -9,16 +9,19 @@
 #import <Foundation/Foundation.h>
 
 @class SGBaseArticle;
+@class SGMediaGalleryView;
 
 @interface SGArticleView : UIView
 {
 @private
 	SGBaseArticle * _article;
+	SGMediaGalleryView * _mediaGalleryView;
 	UILabel * _paragraphTextLabel;
 }
 
 #pragma mark Properties
 @property (nonatomic, readwrite, strong) SGBaseArticle * article;
+@property (nonatomic, readonly, strong) SGMediaGalleryView * mediaGalleryView;
 @property (nonatomic, readonly, strong) UILabel * paragraphTextLabel;
 
 @end

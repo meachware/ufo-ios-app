@@ -8,6 +8,8 @@
 
 #import "SGArticleRequest.h"
 #import "SGNewsArticle.h"
+#import "SGImage.h"
+#import "SGImageGallery.h"
 #import "SGDataManager.h"
 #import "NSDictionary+Json.h"
 
@@ -113,6 +115,53 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 			article.text = [dic stringForKey:@"text"];
 			article.publishDate = [dic dateForTestedKey:@"publish_date"];
 			article.thumbUrl = [dic stringForKey:@"thumb"];
+			
+			if ([[dic objectForKey:@"image_gallery"] isKindOfClass:NSDictionary.class])
+			{
+				SGImageGallery * gallery = [NSEntityDescription insertNewObjectForEntityForName:@"SGImageGallery" inManagedObjectContext:context];
+				
+				NSDictionary * images = [dic objectForKey:@"image_gallery"];
+				if (images.count > 0)
+				{
+					if ([[images objectForKey:@"first"] isKindOfClass:NSDictionary.class])
+					{
+						NSDictionary * imageData = [images objectForKey:@"first"];
+						SGImage * image = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
+						image.title = [imageData stringForKey:@"title"];
+						image.caption = [imageData stringForKey:@"caption"];
+						image.location = [imageData stringForKey:@"url"];
+						
+						[gallery addImagesObject:image];
+					}
+					
+					if ([[images objectForKey:@"second"] isKindOfClass:NSDictionary.class])
+					{
+						NSDictionary * imageData = [images objectForKey:@"second"];
+						SGImage * image = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
+						image.title = [imageData stringForKey:@"title"];
+						image.caption = [imageData stringForKey:@"caption"];
+						image.location = [imageData stringForKey:@"url"];
+						
+						[gallery addImagesObject:image];
+					}
+					
+					if ([[images objectForKey:@"third"] isKindOfClass:NSDictionary.class])
+					{
+						NSDictionary * imageData = [images objectForKey:@"third"];
+						SGImage * image = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
+						image.title = [imageData stringForKey:@"title"];
+						image.caption = [imageData stringForKey:@"caption"];
+						image.location = [imageData stringForKey:@"url"];
+						
+						[gallery addImagesObject:image];
+					}
+					
+					NSLog(@"Added %i images to gallery", gallery.images.count);
+					
+					article.imageGallery = gallery;
+				}
+				
+			}
 			
 			NSError * error;
 			if (![context save:&error])
