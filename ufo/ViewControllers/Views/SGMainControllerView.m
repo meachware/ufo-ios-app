@@ -8,6 +8,7 @@
 
 #import "SGMainControllerView.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SGBaseArticle.h"
 
 @implementation SGMainControllerView
 
@@ -46,8 +47,8 @@
 		_pageControlView = [SGPageControlView.alloc initWithFrame:CGRectZero];
 		[self addSubview:_pageControlView];
 		
-		_articleView = [UIView.alloc init];
-		_articleView.backgroundColor = UIColor.greenColor;
+		_articleView = [SGArticleView.alloc init];
+		_articleView.backgroundColor = UIColor.whiteColor;
 		[self addSubview:_articleView];
 	}
 	return self;
@@ -84,8 +85,10 @@
 	}
 }
 
-- (void)animateDown
+- (void)presentArticle:(SGBaseArticle *)article
 {
+	_articleView.article = article;
+	
 	[UIView animateWithDuration:0.5 animations:^{
 		
 		_backgroundView.frame = CGRectOffset(_backgroundView.frame, 8, 8);

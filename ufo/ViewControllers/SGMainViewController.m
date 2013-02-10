@@ -99,8 +99,7 @@
 		_currentViewController = [pendingViewControllers objectAtIndex:0];
 		[_currentViewController setSelectArticleProvider:^(SGBaseArticle * article){
 			
-			
-			[me.view animateDown];
+			[me.view presentArticle:article];
 		}];
 	}
 }

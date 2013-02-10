@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "SGPageControlView.h"
+#import "SGArticleView.h"
+
+@class SGBaseArticle;
 
 @interface SGMainControllerView : UIView
 {
@@ -16,7 +20,7 @@
 	UIView * _backgroundView;
 	UIView * _bottomBackgroundView;
 	UIView * _pageControllerView;
-	UIView * _articleView;
+	SGArticleView * _articleView;
 	SGPageControlView * _pageControlView;
 }
 
@@ -25,7 +29,7 @@
 @property (nonatomic, strong, readonly) UIView * backgroundView;
 @property (nonatomic, strong, readonly) UIView * bottomBackgroundView;
 @property (nonatomic, strong, readonly) UIView * pageControllerView;
-@property (nonatomic, strong, readonly) UIView * articleView;
+@property (nonatomic, strong, readonly) SGArticleView * articleView;
 @property (nonatomic, strong, readonly) SGPageControlView * pageControlView;
 
 #pragma mark Initialization
@@ -33,5 +37,5 @@
 
 #pragma mark Public Methods
 - (void)addPageControllerView:(UIView *)pageControllerView;
-- (void)animateDown;
+- (void)presentArticle:(SGBaseArticle *)article;
 @end
