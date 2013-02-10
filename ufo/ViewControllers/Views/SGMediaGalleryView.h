@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "SGPagingScrollView.h"
 
+@class SGImageGallery;
+
 typedef enum
 {
 	kSGMediaGalleryViewLayoutHalf = 0,
@@ -23,7 +25,8 @@ typedef enum
 	UILabel * _captionLabel;
 	UIView * _mediaDataIcons;
 	SGMediaGalleryViewLayout _layout;
-	NSArray * _mediaViews;
+	SGImageGallery * _imageGallery;
+	NSMutableArray * _mediaViews;
 }
 
 #pragma mark Properties
@@ -31,9 +34,7 @@ typedef enum
 @property (nonatomic, readonly, strong) UIPageControl * pageControl;
 @property (nonatomic, readonly, strong) UILabel * captionLabel;
 @property SGMediaGalleryViewLayout layout;
-@property (nonatomic, readonly, strong) NSArray * mediaViews;
-
-#pragma mark Initializer
-- (id)initWithFrame:(CGRect)frame mediaViews:(NSArray *)mediaViews;
+@property (nonatomic, readonly, strong) NSMutableArray * mediaViews;
+@property (nonatomic, readwrite, strong) SGImageGallery * imageGallery;
 
 @end

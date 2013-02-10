@@ -37,12 +37,16 @@
 		[self addSubview:_pagingScrollView];
 		
 		_captionLabel = UILabel.alloc.init;
-		_captionLabel.textColor = UIColor.blackColor;
+		_captionLabel.textColor = UIColor.whiteColor;
+		_captionLabel.backgroundColor = UIColor.blackColor;
 		_captionLabel.text = @"Caption text";
 		[self addSubview:_captionLabel];
 		
 		_pageControl = UIPageControl.alloc.init;
-		_pageControl.pageIndicatorTintColor = UIColor.greenColor;
+		_pageControl.pageIndicatorTintColor = UIColor.blueColor;
+		_pageControl.backgroundColor = UIColor.blackColor;
+		_pageControl.currentPage = 1;
+		_pageControl.numberOfPages = 3;
 		[self addSubview:_pageControl];
     }
     return self;
@@ -77,7 +81,7 @@
 		_pagingScrollView.frame = CGRectMake(0, 0, size.width, 200);
 	}
 	_captionLabel.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame), size.width, 20);
-	_pageControl.frame = CGRectMake(100, CGRectGetMaxY(_captionLabel.frame), size.width, 20);
+	_pageControl.frame = CGRectMake(0, CGRectGetMaxY(_captionLabel.frame), size.width, 20);
 }
 
 #pragma mark Paging ScrollView Delegation methods
