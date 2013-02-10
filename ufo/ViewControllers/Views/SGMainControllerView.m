@@ -65,7 +65,7 @@
 		_pageControllerView.frame = CGRectMake(0, 45, size.width, size.height - 64);
 	}
 	
-	_articleView.frame = CGRectMake(size.width, 44, size.width, size.height - 44);
+	_articleView.frame = CGRectMake(size.width, 54, size.width, size.height - 44);
 }
 
 #pragma mark Public Methods

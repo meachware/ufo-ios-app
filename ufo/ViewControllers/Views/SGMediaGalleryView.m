@@ -39,7 +39,6 @@
 		_captionLabel = UILabel.alloc.init;
 		_captionLabel.textColor = UIColor.whiteColor;
 		_captionLabel.backgroundColor = UIColor.blackColor;
-		_captionLabel.text = @"Caption text";
 		[self addSubview:_captionLabel];
 		
 		_pageControl = UIPageControl.alloc.init;
@@ -62,7 +61,6 @@
 			SGImageView * imageView = [SGImageView.alloc initWithImageData:imageData];
 			
 			[_mediaViews addObject:imageView];
-			
 		}];
 		
 	[_pagingScrollView reload];

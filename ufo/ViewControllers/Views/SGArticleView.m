@@ -44,7 +44,7 @@
 
 - (void)layoutSubviews
 {
-	_mediaGalleryView.frame = CGRectMake(0, 0, self.bounds.size.width, 150);
+	_mediaGalleryView.frame = CGRectMake(0, 0, self.bounds.size.width, 130);
 	_paragraphTextLabel.frame = CGRectMake(0, CGRectGetMaxY(_mediaGalleryView.frame) + 20, self.bounds.size.width, 300);
 }
 

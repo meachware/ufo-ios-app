@@ -60,6 +60,12 @@
 	[_navigationController didMoveToParentViewController:self];
 	
 	SGTableViewController * startingViewController = [_pageModelController viewControllerAtIndex:0];
+	
+	__weak SGMainViewController * me = self;
+	[startingViewController setSelectArticleProvider:^(SGBaseArticle * article){
+		[me.view presentArticle:article];
+	}];
+	
 	NSArray * viewControllers = @[startingViewController];
 	
 	[_pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
@@ -108,6 +114,8 @@
 		[_currentViewController setSelectArticleProvider:^(SGBaseArticle * article){
 			
 			[me.view presentArticle:article];
+			
+			
 			
 		}];
 	}
