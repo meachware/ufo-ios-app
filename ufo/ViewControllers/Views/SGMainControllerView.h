@@ -29,7 +29,7 @@
 @property (nonatomic, strong, readonly) UIView * backgroundView;
 @property (nonatomic, strong, readonly) UIView * bottomBackgroundView;
 @property (nonatomic, strong, readonly) UIView * pageControllerView;
-@property (nonatomic, strong, readonly) SGArticleView * articleView;
+@property (nonatomic, strong, readwrite) SGArticleView * articleView;
 @property (nonatomic, strong, readonly) SGPageControlView * pageControlView;
 
 #pragma mark Initialization

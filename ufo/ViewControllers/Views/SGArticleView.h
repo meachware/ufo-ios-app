@@ -14,9 +14,11 @@
 {
 @private
 	SGBaseArticle * _article;
+	UILabel * _paragraphTextLabel;
 }
 
 #pragma mark Properties
 @property (nonatomic, readwrite, strong) SGBaseArticle * article;
+@property (nonatomic, readonly, strong) UILabel * paragraphTextLabel;
 
 @end

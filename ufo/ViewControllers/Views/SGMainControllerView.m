@@ -46,10 +46,6 @@
 		
 		_pageControlView = [SGPageControlView.alloc initWithFrame:CGRectZero];
 		[self addSubview:_pageControlView];
-		
-		_articleView = [SGArticleView.alloc init];
-		_articleView.backgroundColor = UIColor.whiteColor;
-		[self addSubview:_articleView];
 	}
 	return self;
 }
@@ -82,6 +78,20 @@
 		[self insertSubview:_pageControllerView belowSubview:_pageControlView];
 		
 		[self setNeedsLayout];
+	}
+}
+
+- (void)setArticleView:(SGArticleView *)articleView
+{
+	if (_articleView != articleView)
+	{
+		if (_articleView.superview != nil)
+		{
+			[_articleView removeFromSuperview];
+		}
+		
+		_articleView = articleView;
+		[self addSubview:_articleView];
 	}
 }
 

@@ -11,6 +11,7 @@
 #import "SGTableViewController.h"
 
 @class SGPageModelController;
+@class SGArticleViewController;
 
 @interface SGMainViewController : UIViewController <UIPageViewControllerDelegate>
 {
@@ -19,11 +20,13 @@
 	UIPageViewController * _pageViewController;
 	SGPageModelController * _pageModelController;
 	SGTableViewController * _currentViewController;
+	SGArticleViewController * _articleViewController;
 }
 
 #pragma mark Properties
 @property (nonatomic, strong) SGMainControllerView * view;
 @property (nonatomic, strong, readonly) UIPageViewController * pageViewController;
 @property (nonatomic, strong, readonly) SGPageModelController * pageModelController;
+@property (nonatomic, strong, readonly) SGArticleViewController * articleViewController;
 
 @end

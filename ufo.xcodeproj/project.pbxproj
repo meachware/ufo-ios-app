@@ -19,6 +19,7 @@
 		6671B20316C19820004A35E0 /* SGImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6671B20216C19820004A35E0 /* SGImage.m */; };
 		6671B20616C19C87004A35E0 /* SGStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 6671B20516C19C87004A35E0 /* SGStyle.m */; };
 		6671B20916C1A097004A35E0 /* SGArticleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6671B20816C1A097004A35E0 /* SGArticleView.m */; };
+		6671B20C16C7A6BD004A35E0 /* SGArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6671B20B16C7A6BD004A35E0 /* SGArticleViewController.m */; };
 		669584BB16A30532003CD021 /* SGPageModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 669584BA16A30532003CD021 /* SGPageModelController.m */; };
 		66BBFC4C16A3153D0017439E /* SGPageControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC4B16A3153D0017439E /* SGPageControlView.m */; };
 		66BBFC5416A321330017439E /* NSDictionary+Json.m in Sources */ = {isa = PBXBuildFile; fileRef = 66BBFC5316A321330017439E /* NSDictionary+Json.m */; };
@@ -78,6 +79,8 @@
 		6671B20516C19C87004A35E0 /* SGStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGStyle.m; sourceTree = "<group>"; };
 		6671B20716C1A097004A35E0 /* SGArticleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGArticleView.h; sourceTree = "<group>"; };
 		6671B20816C1A097004A35E0 /* SGArticleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGArticleView.m; sourceTree = "<group>"; };
+		6671B20A16C7A6BD004A35E0 /* SGArticleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGArticleViewController.h; sourceTree = "<group>"; };
+		6671B20B16C7A6BD004A35E0 /* SGArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGArticleViewController.m; sourceTree = "<group>"; };
 		669584B916A30532003CD021 /* SGPageModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPageModelController.h; sourceTree = "<group>"; };
 		669584BA16A30532003CD021 /* SGPageModelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGPageModelController.m; sourceTree = "<group>"; };
 		66BBFC4A16A3153D0017439E /* SGPageControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGPageControlView.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 				66F2E73F16A15EBE006C5D22 /* SGMainViewController.m */,
 				66F2E74F16A16FD2006C5D22 /* SGTableViewController.h */,
 				66F2E75016A16FD2006C5D22 /* SGTableViewController.m */,
+				6671B20A16C7A6BD004A35E0 /* SGArticleViewController.h */,
+				6671B20B16C7A6BD004A35E0 /* SGArticleViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				6671B20316C19820004A35E0 /* SGImage.m in Sources */,
 				6671B20616C19C87004A35E0 /* SGStyle.m in Sources */,
 				6671B20916C1A097004A35E0 /* SGArticleView.m in Sources */,
+				6671B20C16C7A6BD004A35E0 /* SGArticleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

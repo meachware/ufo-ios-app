@@ -8,6 +8,7 @@
 
 #import "SGMainViewController.h"
 #import "SGPageModelController.h"
+#import "SGArticleViewController.h"
 
 @interface SGMainViewController ()
 
@@ -20,6 +21,7 @@
 @dynamic view;
 @synthesize pageViewController = _pageViewController;
 @synthesize pageModelController = _pageModelController;
+@synthesize articleViewController = _articleViewController;
 
 #pragma mark Initialization
 
@@ -37,6 +39,8 @@
 		
 		_pageViewController.dataSource = _pageModelController;
 		_pageViewController.delegate = self;
+		
+		_articleViewController = SGArticleViewController.alloc.init;
     }
     return self;
 }
@@ -69,6 +73,10 @@
 	
 	self.view.pageControlView.pageControl.numberOfPages = _pageModelController.dataViewControllers.count;
 	self.view.pageControlView.pageControl.currentPage = 0;
+	
+	self.view.articleView = _articleViewController.view;
+	[self addChildViewController:_articleViewController];
+	[_articleViewController didMoveToParentViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,6 +108,7 @@
 		[_currentViewController setSelectArticleProvider:^(SGBaseArticle * article){
 			
 			[me.view presentArticle:article];
+			
 		}];
 	}
 }
