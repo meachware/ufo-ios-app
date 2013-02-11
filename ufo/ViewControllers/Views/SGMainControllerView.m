@@ -14,7 +14,7 @@
 
 #pragma mark Properties
 
-@synthesize navigationView = _navigationView;
+@synthesize toolBar = _toolBar;
 @synthesize backgroundView = _backgroundView;
 @synthesize bottomBackgroundView = _bottomBackgroundView;
 @synthesize pageControllerView = _pageControllerView;
@@ -23,15 +23,15 @@
 
 #pragma mark Initialization
 
-- (id)initWithNavigationView:(UIView *)navigationView
+- (id)initWithToolBar:(UIToolbar *)toolBar
 {
 	self = [super init];
 	if (self)
 	{
 		self.backgroundColor = UIColor.blackColor;
 		
-		_navigationView = navigationView;
-		[self addSubview:_navigationView];
+		_toolBar = toolBar;
+		[self addSubview:_toolBar];
 		
 		_backgroundView = UIView.alloc.init;
 		_backgroundView.backgroundColor = [UIColor grayColor];
@@ -55,7 +55,7 @@
 {
 	CGSize size = self.bounds.size;
 	
-	_navigationView.frame = CGRectMake(0, 0, size.width, 44);
+	_toolBar.frame = CGRectMake(0, 0, size.width, 44);
 	_backgroundView.frame = CGRectMake(0, 44, size.width, size.height - 44);
 	_bottomBackgroundView.frame = CGRectMake(0, size.height, size.width, 8);
 	_pageControlView.frame = CGRectMake(0, size.height - 20, size.width, 20);
@@ -107,6 +107,29 @@
 		_bottomBackgroundView.frame = CGRectOffset(_bottomBackgroundView.frame, 8, -8);
 		
 		_articleView.frame = CGRectOffset(_articleView.frame, - 320, 0);
+		
+		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissArticle)];
+		[_toolBar setItems:[NSArray arrayWithObject:backButton]];
+		
+	} completion:^(BOOL finished){
+		
+	}];
+}
+
+- (void)dismissArticle
+{
+	_articleView.article = nil;
+	
+	[UIView animateWithDuration:0.5 animations:^{
+		
+		_backgroundView.frame = CGRectOffset(_backgroundView.frame, -8, -8);
+		_pageControlView.frame = CGRectOffset(_pageControlView.frame, -8, 8);
+		_pageControllerView.frame = CGRectOffset(_pageControllerView.frame, -8, -6);
+		_bottomBackgroundView.frame = CGRectOffset(_bottomBackgroundView.frame, -8, 8);
+		
+		_articleView.frame = CGRectOffset(_articleView.frame, 320, 0);
+		
+		[_toolBar setItems:nil];
 		
 	} completion:^(BOOL finished){
 		

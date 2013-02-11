@@ -16,7 +16,7 @@
 @interface SGMainViewController : UIViewController <UIPageViewControllerDelegate>
 {
 @private
-	UINavigationController * _navigationController;
+	UIToolbar * _toolbar;
 	UIPageViewController * _pageViewController;
 	SGPageModelController * _pageModelController;
 	SGTableViewController * _currentViewController;

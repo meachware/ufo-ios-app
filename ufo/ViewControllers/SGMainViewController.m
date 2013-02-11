@@ -30,8 +30,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self)
 	{
-        _navigationController = UINavigationController.alloc.init;
-		[self addChildViewController:_navigationController];
+        _toolbar = [UIToolbar.alloc init];
 		
 		_pageViewController = [UIPageViewController.alloc initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
 		
@@ -49,15 +48,14 @@
 
 - (void)loadView
 {
-	self.view = [SGMainControllerView.alloc initWithNavigationView:_navigationController.view];
+	self.view = [SGMainControllerView.alloc initWithToolBar:_toolbar];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	
-	[_navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"topbar_bg"] forBarMetrics:UIBarMetricsDefault];
-	[_navigationController didMoveToParentViewController:self];
+	[_toolbar setBackgroundImage:[UIImage imageNamed:@"topbar_bg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 	
 	SGTableViewController * startingViewController = [_pageModelController viewControllerAtIndex:0];
 	
@@ -114,8 +112,6 @@
 		[_currentViewController setSelectArticleProvider:^(SGBaseArticle * article){
 			
 			[me.view presentArticle:article];
-			
-			
 			
 		}];
 	}

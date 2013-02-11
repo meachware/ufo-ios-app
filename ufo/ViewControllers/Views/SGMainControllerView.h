@@ -16,7 +16,7 @@
 @interface SGMainControllerView : UIView
 {
 @private
-	UIView * _navigationView;
+	UIToolbar * _toolBar;
 	UIView * _backgroundView;
 	UIView * _bottomBackgroundView;
 	UIView * _pageControllerView;
@@ -25,7 +25,7 @@
 }
 
 #pragma mark Properties
-@property (nonatomic, strong, readonly) UIView * navigationView;
+@property (nonatomic, strong, readonly) UIToolbar * toolBar;
 @property (nonatomic, strong, readonly) UIView * backgroundView;
 @property (nonatomic, strong, readonly) UIView * bottomBackgroundView;
 @property (nonatomic, strong, readonly) UIView * pageControllerView;
@@ -33,7 +33,7 @@
 @property (nonatomic, strong, readonly) SGPageControlView * pageControlView;
 
 #pragma mark Initialization
-- (id)initWithNavigationView:(UIView *)navigationView;
+- (id)initWithToolBar:(UIToolbar *)toolBar;
 
 #pragma mark Public Methods
 - (void)addPageControllerView:(UIView *)pageControllerView;
