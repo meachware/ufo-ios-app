@@ -11,17 +11,19 @@
 @class SGBaseArticle;
 @class SGMediaGalleryView;
 
-@interface SGArticleView : UIView
+@interface SGArticleView : UIScrollView
 {
 @private
 	SGBaseArticle * _article;
 	SGMediaGalleryView * _mediaGalleryView;
+	UILabel * _titleLabel;
 	UILabel * _paragraphTextLabel;
 }
 
 #pragma mark Properties
 @property (nonatomic, readwrite, strong) SGBaseArticle * article;
 @property (nonatomic, readonly, strong) SGMediaGalleryView * mediaGalleryView;
+@property (nonatomic, readonly, strong) UILabel * titleLabel;
 @property (nonatomic, readonly, strong) UILabel * paragraphTextLabel;
 
 @end

@@ -65,7 +65,7 @@
 		_pageControllerView.frame = CGRectMake(0, 45, size.width, size.height - 64);
 	}
 	
-	_articleView.frame = CGRectMake(size.width, 54, size.width, size.height - 44);
+	_articleView.frame = CGRectMake(size.width, 44, size.width, size.height - 44);
 }
 
 #pragma mark Public Methods
@@ -108,7 +108,7 @@
 		
 		_articleView.frame = CGRectOffset(_articleView.frame, - 320, 0);
 		
-		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissArticle)];
+		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"News" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissArticle)];
 		[_toolBar setItems:[NSArray arrayWithObject:backButton]];
 		
 	} completion:^(BOOL finished){
@@ -118,8 +118,6 @@
 
 - (void)dismissArticle
 {
-	_articleView.article = nil;
-	
 	[UIView animateWithDuration:0.5 animations:^{
 		
 		_backgroundView.frame = CGRectOffset(_backgroundView.frame, -8, -8);
@@ -132,7 +130,7 @@
 		[_toolBar setItems:nil];
 		
 	} completion:^(BOOL finished){
-		
+			
 	}];
 }
 
