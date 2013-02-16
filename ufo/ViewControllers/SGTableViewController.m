@@ -8,6 +8,7 @@
 
 #import "SGTableViewController.h"
 #import "SGArticleCell.h"
+#import "SGTableHeaderView.h"
 #import "SGBaseArticle.h"
 #import "SGRequestManager.h"
 #import "SGArticleRequest.h"
@@ -30,6 +31,8 @@
 	if (self)
 	{
         [self.tableView registerClass:SGArticleCell.class forCellReuseIdentifier:@"Cell"];
+		self.tableView.backgroundView = nil;
+		self.tableView.backgroundColor = [UIColor lightGrayColor];
 		
 		self.refreshControl = [UIRefreshControl.alloc init];
 		self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull to refresh"];
@@ -182,6 +185,19 @@
     SGBaseArticle * article = [_fetchedResultsController objectAtIndexPath:indexPath];
     
 	cell.article = article;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	SGTableHeaderView * headerView = [SGTableHeaderView.alloc init];
+	headerView.titleLabel.text = @"News";
+	
+	return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 30;
 }
 
 #pragma mark Actions

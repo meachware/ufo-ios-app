@@ -55,7 +55,7 @@
 {
     [super viewDidLoad];
 	
-	[_toolbar setBackgroundImage:[UIImage imageNamed:@"topbar_bg"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
+	[_toolbar setBackgroundImage:[UIImage imageNamed:@"topbar_background"] forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
 	
 	SGTableViewController * startingViewController = [_pageModelController viewControllerAtIndex:0];
 	

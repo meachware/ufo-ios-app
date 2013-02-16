@@ -12,8 +12,10 @@
 {
 @private
 	UIPageControl * _pageControl;
+	UIImageView * _backgroundView;
 }
 
 @property (nonatomic, strong, readonly) UIPageControl * pageControl;
+@property (nonatomic, strong, readonly) UIImageView * backgroundView;
 
 @end

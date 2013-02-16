@@ -27,7 +27,7 @@
     if (self)
 	{
 		UIImage * backgroundImage = [UIImage imageNamed:@"cell_background_gray"];
-		UIImageView * backgroundView = [UIImageView.alloc initWithImage:[backgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 1, 0, 1)]];
+		UIImageView * backgroundView = [UIImageView.alloc initWithImage:[backgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 1, 0)]];
 		self.backgroundView = backgroundView;
 		
 		_titleLabel = UILabel.alloc.init;
@@ -52,8 +52,8 @@
 {
 	[super layoutSubviews];
 	
-	_thumbImageView.frame = CGRectMake(2, 2, 50, 40);
-	_titleLabel.frame = CGRectMake(55, 2, 220, 40);
+	_thumbImageView.frame = CGRectMake(4, 3, 70, 38);
+	_titleLabel.frame = CGRectMake(78, 2, 220, 38);
 }
 
 - (void)setArticle:(SGBaseArticle *)article
