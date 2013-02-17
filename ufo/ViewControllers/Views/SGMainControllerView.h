@@ -17,6 +17,7 @@
 {
 @private
 	UIToolbar * _toolBar;
+	UIBarButtonItem * _navButton;
 	UIView * _backgroundView;
 	UIView * _bottomBackgroundView;
 	UIView * _pageControllerView;
@@ -26,6 +27,7 @@
 
 #pragma mark Properties
 @property (nonatomic, strong, readonly) UIToolbar * toolBar;
+@property (nonatomic, strong, readonly) UIBarButtonItem * navButton;
 @property (nonatomic, strong, readonly) UIView * backgroundView;
 @property (nonatomic, strong, readonly) UIView * bottomBackgroundView;
 @property (nonatomic, strong, readonly) UIView * pageControllerView;

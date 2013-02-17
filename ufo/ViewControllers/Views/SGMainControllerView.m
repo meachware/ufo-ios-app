@@ -15,6 +15,7 @@
 #pragma mark Properties
 
 @synthesize toolBar = _toolBar;
+@synthesize navButton = _navButton;
 @synthesize backgroundView = _backgroundView;
 @synthesize bottomBackgroundView = _bottomBackgroundView;
 @synthesize pageControllerView = _pageControllerView;
@@ -43,6 +44,18 @@
 		
 		_toolBar = toolBar;
 		[self addSubview:_toolBar];
+		
+		UIBarButtonItem * leftSpaceItem = [UIBarButtonItem.alloc initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+		UIBarButtonItem * rightSpaceItem = [UIBarButtonItem.alloc initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+		
+		UIButton * navButton = [UIButton buttonWithType:UIButtonTypeCustom];
+		navButton.frame = CGRectMake(0, 0, 115, 36);
+		[navButton setBackgroundImage:[UIImage imageNamed:@"nav_button"] forState:UIControlStateNormal];
+		[navButton setBackgroundImage:[UIImage imageNamed:@"nav_button_on"] forState:UIControlStateHighlighted];
+		
+		_navButton = [UIBarButtonItem.alloc initWithCustomView:navButton];
+		
+		[_toolBar setItems:[NSArray arrayWithObjects:leftSpaceItem,_navButton, rightSpaceItem, nil]];
 		
 		_pageControlView = [SGPageControlView.alloc initWithFrame:CGRectZero];
 		[self addSubview:_pageControlView];
