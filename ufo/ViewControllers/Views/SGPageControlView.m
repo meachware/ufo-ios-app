@@ -19,7 +19,7 @@
     if (self)
 	{
         UIImage * backgroundImage = [UIImage imageNamed:@"pagecontrol_background"];
-		UIImageView * backgroundView = [UIImageView.alloc initWithImage:[backgroundImage resizableImageWithCapInsets:UIEdgeInsetsMake(1, 0, 1, 0)]];
+		UIImageView * backgroundView = [UIImageView.alloc initWithImage:backgroundImage];
 		_backgroundView = backgroundView;
 		
 		[self addSubview:_backgroundView];

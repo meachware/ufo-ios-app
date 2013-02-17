@@ -32,10 +32,16 @@
 	{
         [self.tableView registerClass:SGArticleCell.class forCellReuseIdentifier:@"Cell"];
 		self.tableView.backgroundView = nil;
-		self.tableView.backgroundColor = [UIColor lightGrayColor];
+		self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"table_background"]];
+		
+		NSMutableAttributedString * refreshTitle = [NSMutableAttributedString.alloc initWithString:@"Pull to refresh"];
+		[refreshTitle addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] range:NSMakeRange(0, refreshTitle.length)];
+		[refreshTitle addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, refreshTitle.length)];
 		
 		self.refreshControl = [UIRefreshControl.alloc init];
-		self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull to refresh"];
+		self.refreshControl.attributedTitle = refreshTitle;
+		self.refreshControl.tintColor = [UIColor darkGrayColor];
+		
 		[self.refreshControl addTarget:self action:@selector(refresh:) forControlEvents:UIControlEventValueChanged];
 		
 		[NSNotificationCenter.defaultCenter addObserver:self selector:@selector(updateData) name:kSGNewsArticlesChanged object:nil];
@@ -47,9 +53,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-	self.tableView.backgroundColor = nil;
-	//self.tableView.backgroundView = nil;
 	
 	_managedObjectContext = [SGDataManager.shared managedObjectContext];
 	
@@ -200,11 +203,20 @@
 	return 30;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 68;
+}
+
 #pragma mark Actions
 
 - (void)refresh:(id)sender
 {
-	self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Refreshing"];
+	NSMutableAttributedString * refreshTitle = [NSMutableAttributedString.alloc initWithString:@"Refreshing"];
+	[refreshTitle addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] range:NSMakeRange(0, refreshTitle.length)];
+	[refreshTitle addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, refreshTitle.length)];
+	
+	self.refreshControl.attributedTitle = refreshTitle;
 	
 	[self loadData];
 }
@@ -225,7 +237,12 @@
 	}
 	
 	[self.refreshControl endRefreshing];
-	self.refreshControl.attributedTitle = [NSAttributedString.alloc initWithString:@"Pull To Refresh"];
+	
+	NSMutableAttributedString * refreshTitle = [NSMutableAttributedString.alloc initWithString:@"Pull To Refresh"];
+	[refreshTitle addAttribute:NSFontAttributeName value:[UIFont fontWithName:@"HelveticaNeue" size:12.0f] range:NSMakeRange(0, refreshTitle.length)];
+	[refreshTitle addAttribute:NSForegroundColorAttributeName value:[UIColor darkGrayColor] range:NSMakeRange(0, refreshTitle.length)];
+	
+	self.refreshControl.attributedTitle = refreshTitle;
 }
 
 @end

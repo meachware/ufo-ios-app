@@ -30,9 +30,6 @@
 	{
 		self.backgroundColor = UIColor.blackColor;
 		
-		_toolBar = toolBar;
-		[self addSubview:_toolBar];
-		
 		_backgroundView = UIView.alloc.init;
 		_backgroundView.backgroundColor = [UIColor grayColor];
 		_backgroundView.clipsToBounds = YES;
@@ -43,6 +40,9 @@
 		_bottomBackgroundView.backgroundColor = UIColor.blackColor;
 		
 		[self addSubview:_bottomBackgroundView];
+		
+		_toolBar = toolBar;
+		[self addSubview:_toolBar];
 		
 		_pageControlView = [SGPageControlView.alloc initWithFrame:CGRectZero];
 		[self addSubview:_pageControlView];
@@ -55,10 +55,10 @@
 {
 	CGSize size = self.bounds.size;
 	
-	_toolBar.frame = CGRectMake(0, 0, size.width, 44);
+	_toolBar.frame = CGRectMake(0, 0, size.width, 45);
 	_backgroundView.frame = CGRectMake(0, 44, size.width, size.height - 44);
 	_bottomBackgroundView.frame = CGRectMake(0, size.height, size.width, 8);
-	_pageControlView.frame = CGRectMake(0, size.height - 20, size.width, 20);
+	_pageControlView.frame = CGRectMake(0, size.height - 22, size.width, 22);
 	
 	if (_pageControllerView)
 	{

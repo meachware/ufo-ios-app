@@ -7,6 +7,7 @@
 //
 
 #import "SGTableHeaderView.h"
+#import "SGStyle.h"
 
 @implementation SGTableHeaderView
 
@@ -20,7 +21,7 @@
 	{
 		self.backgroundColor = [UIColor clearColor];
 		
-		UIImage * backgroundImage = [UIImage imageNamed:@"cell_header_background_gray"];
+		UIImage * backgroundImage = [UIImage imageNamed:@"cell_header_background"];
 		_backgroundView = [UIImageView.alloc initWithImage:backgroundImage];
 		
 		[self addSubview:_backgroundView];
@@ -28,6 +29,8 @@
 		_titleLabel = UILabel.alloc.init;
 		_titleLabel.textAlignment = NSTextAlignmentCenter;
 		_titleLabel.numberOfLines = 1;
+		_titleLabel.font = SGStyle.tableHeaderTextStyle.font;
+		_titleLabel.textColor = SGStyle.tableHeaderTextStyle.color;
 		_titleLabel.backgroundColor = [UIColor clearColor];
 		
 		[self addSubview:_titleLabel];
