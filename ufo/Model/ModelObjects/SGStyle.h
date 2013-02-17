@@ -20,5 +20,6 @@
 @property (nonatomic, readwrite, strong) UIColor * color;
 
 + (SGStyle *)articleCellStyle;
++ (SGStyle *)tableHeaderTextStyle;
 
 @end

@@ -25,8 +25,23 @@
 	dispatch_once(&onceToken, ^{
 		
 		style = SGStyle.alloc.init;
-		style.font = [UIFont fontWithName:@"Helvetica" size:12];
+		style.font = [UIFont fontWithName:@"Helvetica" size:14];
 		style.color = UIColor.blackColor;
+	});
+	
+	return style;
+}
+
++ (SGStyle *)tableHeaderTextStyle
+{
+	static SGStyle * style = nil;
+	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		
+		style = SGStyle.alloc.init;
+		style.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+		style.color = [UIColor darkGrayColor];
 	});
 	
 	return style;

@@ -21,12 +21,12 @@
 
 + (NSString *)sgHostName
 {
-	return @"127.0.0.1:8000";
+	return @"ufo-app.appspot.com";
 }
 
 + (NSString *)sgStaticImageHostName
 {
-	return @"127.0.0.1:8000";
+	return @"ufo-app.appspot.com";
 }
 
 #pragma mark Operation methods
