@@ -10,6 +10,15 @@
 #import <QuartzCore/QuartzCore.h>
 #import "SGBaseArticle.h"
 
+typedef enum {
+    kMainMode,
+    kArticleMode
+} SGToolbarMode;
+
+@interface SGMainControllerView ()
+- (NSArray *)toolbarItemsForMode:(SGToolbarMode)mode;
+@end
+
 @implementation SGMainControllerView
 
 #pragma mark Properties
@@ -42,12 +51,6 @@
 		
 		[self addSubview:_bottomBackgroundView];
 		
-		_toolBar = toolBar;
-		[self addSubview:_toolBar];
-		
-		UIBarButtonItem * leftSpaceItem = [UIBarButtonItem.alloc initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-		UIBarButtonItem * rightSpaceItem = [UIBarButtonItem.alloc initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-		
 		UIButton * navButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		navButton.frame = CGRectMake(0, 0, 115, 36);
 		[navButton setBackgroundImage:[UIImage imageNamed:@"nav_button"] forState:UIControlStateNormal];
@@ -55,7 +58,9 @@
 		
 		_navButton = [UIBarButtonItem.alloc initWithCustomView:navButton];
 		
-		[_toolBar setItems:[NSArray arrayWithObjects:leftSpaceItem,_navButton, rightSpaceItem, nil]];
+		_toolBar = toolBar;
+		[_toolBar setItems:[self toolbarItemsForMode:kMainMode]];
+		[self addSubview:_toolBar];
 		
 		_pageControlView = [SGPageControlView.alloc initWithFrame:CGRectZero];
 		[self addSubview:_pageControlView];
@@ -79,6 +84,30 @@
 	}
 	
 	_articleView.frame = CGRectMake(size.width, 44, size.width, size.height - 44);
+}
+
+#pragma mark Private Methods
+
+- (NSArray *)toolbarItemsForMode:(SGToolbarMode)mode
+{	
+	UIBarButtonItem * leftSpaceItem = [UIBarButtonItem.alloc initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	UIBarButtonItem * rightSpaceItem = [UIBarButtonItem.alloc initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+	
+	if (mode == kMainMode)
+	{
+		return [NSArray arrayWithObjects:leftSpaceItem, _navButton, rightSpaceItem, nil];
+	}
+	else if (mode == kArticleMode)
+	{
+		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"News"
+																	  style:UIBarButtonItemStyleBordered
+																	 target:self
+																	 action:@selector(dismissArticle)];
+		
+		return [NSArray arrayWithObjects:backButton, leftSpaceItem, _navButton, rightSpaceItem, nil];
+	}
+	
+	return [NSArray array];
 }
 
 #pragma mark Public Methods
@@ -121,11 +150,7 @@
 		
 		_articleView.frame = CGRectOffset(_articleView.frame, - 320, 0);
 		
-		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"News"
-																	  style:UIBarButtonItemStyleBordered
-																	 target:self
-																	 action:@selector(dismissArticle)];
-		[_toolBar setItems:[NSArray arrayWithObject:backButton]];
+		[_toolBar setItems:[self toolbarItemsForMode:kArticleMode]];
 		
 	} completion:^(BOOL finished){
 		
@@ -143,7 +168,7 @@
 		
 		_articleView.frame = CGRectOffset(_articleView.frame, 320, 0);
 		
-		[_toolBar setItems:nil];
+		[_toolBar setItems:[self toolbarItemsForMode:kMainMode]];
 		
 	} completion:^(BOOL finished){
 			
