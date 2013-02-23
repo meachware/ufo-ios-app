@@ -102,15 +102,17 @@ typedef enum {
 	{
 		SGBarButton * backButton = [SGBarButton.alloc initWithType:kBackButtonType];
 		[backButton setTitle:@"News" forState:UIControlStateNormal];
+		
+		__weak SGMainControllerView * __self = self;
 		backButton.upInside = ^(){
-			[self dismissArticle];
+			[__self dismissArticle];
 		};
 		
 		UIBarButtonItem * backButtonItem = [UIBarButtonItem.alloc initWithCustomView:backButton];
 		
 		SGBarButton * shareButton = [SGBarButton.alloc initWithType:kSharingType];
 		shareButton.upInside = ^(){
-			
+			//TODO: Sharing panel
 		};
 		
 		UIBarButtonItem * shareButtonItem = [UIBarButtonItem.alloc initWithCustomView:shareButton];
@@ -144,6 +146,12 @@ typedef enum {
 		}
 		
 		_articleView = articleView;
+		
+		__weak SGMainControllerView * __self = self;
+		_articleView.articleViewSwiped = ^(){
+			[__self dismissArticle];
+		};
+		
 		[self addSubview:_articleView];
 	}
 }

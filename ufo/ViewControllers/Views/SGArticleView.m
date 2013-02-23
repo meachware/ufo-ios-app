@@ -10,6 +10,10 @@
 #import "SGBaseArticle.h"
 #import "SGMediaGalleryView.h"
 
+@interface SGArticleView ()
+- (void)handleSwipe;
+@end
+
 @implementation SGArticleView
 
 #pragma mark Properties
@@ -18,6 +22,7 @@
 @synthesize titleLabel = _titleLabel;
 @synthesize publishDateLabel = _publishDateLabel;
 @synthesize paragraphTextLabel = _paragraphTextLabel;
+@synthesize articleViewSwiped = _articleViewSwiped;
 
 - (id)init
 {
@@ -51,6 +56,10 @@
 		_paragraphTextLabel.textAlignment = NSTextAlignmentLeft;
 		_paragraphTextLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
 		[self addSubview:_paragraphTextLabel];
+		
+		UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe)];
+		[recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+		[self addGestureRecognizer:recognizer];
 	}
 	return self;
 }
@@ -141,6 +150,14 @@
 		bBeginRange = [text rangeOfString:@"<b>" options:NSLiteralSearch range:startRange];
 	}
 	return attString;
+}
+
+- (void)handleSwipe
+{
+	if (_articleViewSwiped)
+	{
+		_articleViewSwiped();
+	}
 }
 
 @end

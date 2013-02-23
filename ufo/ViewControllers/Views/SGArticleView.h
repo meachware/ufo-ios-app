@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^SGArticleViewSwiped)();
+
 @class SGBaseArticle;
 @class SGMediaGalleryView;
 
@@ -19,6 +21,7 @@
 	UILabel * _titleLabel;
 	UILabel * _paragraphTextLabel;
 	UILabel * _publishDateLabel;
+	SGArticleViewSwiped _articleViewSwiped;
 }
 
 #pragma mark Properties
@@ -27,5 +30,6 @@
 @property (nonatomic, readonly, strong) UILabel * titleLabel;
 @property (nonatomic, readonly, strong) UILabel * publishDateLabel;
 @property (nonatomic, readonly, strong) UILabel * paragraphTextLabel;
+@property (nonatomic, copy) SGArticleViewSwiped articleViewSwiped;
 
 @end
