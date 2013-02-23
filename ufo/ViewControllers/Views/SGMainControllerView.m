@@ -32,7 +32,7 @@
 		self.backgroundColor = UIColor.blackColor;
 		
 		_backgroundView = UIView.alloc.init;
-		_backgroundView.backgroundColor = [UIColor grayColor];
+		_backgroundView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"stars"]];
 		_backgroundView.clipsToBounds = YES;
 		
 		[self addSubview:_backgroundView];
@@ -112,7 +112,7 @@
 {
 	_articleView.article = article;
 	
-	[UIView animateWithDuration:0.5 animations:^{
+	[UIView animateWithDuration:0.3 animations:^{
 		
 		_backgroundView.frame = CGRectOffset(_backgroundView.frame, 8, 8);
 		_pageControlView.frame = CGRectOffset(_pageControlView.frame, 8, -8);
@@ -121,7 +121,10 @@
 		
 		_articleView.frame = CGRectOffset(_articleView.frame, - 320, 0);
 		
-		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"News" style:UIBarButtonItemStyleBordered target:self action:@selector(dismissArticle)];
+		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"News"
+																	  style:UIBarButtonItemStyleBordered
+																	 target:self
+																	 action:@selector(dismissArticle)];
 		[_toolBar setItems:[NSArray arrayWithObject:backButton]];
 		
 	} completion:^(BOOL finished){
@@ -131,7 +134,7 @@
 
 - (void)dismissArticle
 {
-	[UIView animateWithDuration:0.5 animations:^{
+	[UIView animateWithDuration:0.3 animations:^{
 		
 		_backgroundView.frame = CGRectOffset(_backgroundView.frame, -8, -8);
 		_pageControlView.frame = CGRectOffset(_pageControlView.frame, -8, 8);

@@ -18,12 +18,14 @@
 	SGMediaGalleryView * _mediaGalleryView;
 	UILabel * _titleLabel;
 	UILabel * _paragraphTextLabel;
+	UILabel * _publishDateLabel;
 }
 
 #pragma mark Properties
 @property (nonatomic, readwrite, strong) SGBaseArticle * article;
 @property (nonatomic, readonly, strong) SGMediaGalleryView * mediaGalleryView;
 @property (nonatomic, readonly, strong) UILabel * titleLabel;
+@property (nonatomic, readonly, strong) UILabel * publishDateLabel;
 @property (nonatomic, readonly, strong) UILabel * paragraphTextLabel;
 
 @end

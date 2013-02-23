@@ -35,7 +35,7 @@ NSString * const SGDetailImageTypeCode = @"detailImageTypeCode";
 	
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		type = [SGImageType.alloc initWithSize:CGSizeMake(50, 40) code:SGThumbImageTypeCode];
+		type = [SGImageType.alloc initWithSize:CGSizeMake(100, 56) code:SGThumbImageTypeCode];
 	});
 	
 	return type;

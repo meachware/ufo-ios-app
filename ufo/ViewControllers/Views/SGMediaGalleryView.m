@@ -53,8 +53,12 @@
 
 - (void)setImageGallery:(SGImageGallery *)imageGallery
 {
-	_imageGallery = imageGallery;
-	
+	if (_imageGallery != imageGallery)
+	{
+		_imageGallery = imageGallery;
+		
+		[_mediaViews removeAllObjects];
+		
 		[_imageGallery.images enumerateObjectsUsingBlock:^(SGImage * obj, BOOL * stop){
 			
 			SGImageData * imageData = [SGImageData.alloc initWithPath:obj.location type:SGImageType.detailImageType];
@@ -63,7 +67,8 @@
 			[_mediaViews addObject:imageView];
 		}];
 		
-	[_pagingScrollView reload];
+		[_pagingScrollView reload];
+	}
 }
 
 - (void)layoutSubviews

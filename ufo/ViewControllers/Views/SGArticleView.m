@@ -16,6 +16,7 @@
 @synthesize article = _article;
 @synthesize mediaGalleryView = _mediaGalleryView;
 @synthesize titleLabel = _titleLabel;
+@synthesize publishDateLabel = _publishDateLabel;
 @synthesize paragraphTextLabel = _paragraphTextLabel;
 
 - (id)init
@@ -34,14 +35,21 @@
 		_titleLabel.textColor = UIColor.blackColor;
 		_titleLabel.numberOfLines = 2;
 		_titleLabel.textAlignment = NSTextAlignmentLeft;
-		_titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:12];
+		_titleLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
 		[self addSubview:_titleLabel];
+		
+		_publishDateLabel = UILabel.alloc.init;
+		_publishDateLabel.textColor = [UIColor lightGrayColor];
+		_publishDateLabel.numberOfLines = 1;
+		_publishDateLabel.textAlignment = NSTextAlignmentLeft;
+		_publishDateLabel.font = [UIFont fontWithName:@"Helvetica" size:12];
+		[self addSubview:_publishDateLabel];
 		
 		_paragraphTextLabel = UILabel.alloc.init;
 		_paragraphTextLabel.textColor = UIColor.blackColor;
 		_paragraphTextLabel.numberOfLines = 0;
 		_paragraphTextLabel.textAlignment = NSTextAlignmentLeft;
-		_paragraphTextLabel.font = [UIFont fontWithName:@"Helvetica" size:8];
+		_paragraphTextLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
 		[self addSubview:_paragraphTextLabel];
 	}
 	return self;
@@ -59,6 +67,9 @@
 	
 	_titleLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 30);
 	vOffset += CGRectGetHeight(_titleLabel.frame);
+	
+	_publishDateLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 30);
+	vOffset += CGRectGetHeight(_publishDateLabel.frame);
 	
 	_paragraphTextLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 400);
 	[_paragraphTextLabel sizeToFit];
@@ -78,6 +89,7 @@
 		_mediaGalleryView.imageGallery = _article.imageGallery;
 		
 		_titleLabel.text = _article.title;
+		_publishDateLabel.text = _article.publishDate.description;
 		
 		_paragraphTextLabel.attributedText = [self formattedText:_article.text];
 		[_paragraphTextLabel sizeToFit];
@@ -94,7 +106,7 @@
 	NSInteger _stringLength = [text length];
 	
 	UIColor * _black = [UIColor blackColor];
-	UIFont * font = [UIFont fontWithName:@"HelveticaNeue" size:12.0f];
+	UIFont * font = [UIFont fontWithName:@"HelveticaNeue" size:14.0f];
 	
 	[attString addAttribute:NSFontAttributeName value:font range:NSMakeRange(0, _stringLength)];
 	[attString addAttribute:NSForegroundColorAttributeName value:_black range:NSMakeRange(0, _stringLength)];
@@ -112,7 +124,7 @@
 	{
 		NSRange bEndRange = [text rangeOfString:@"</b>" options:NSLiteralSearch range:startRange];
 		
-		UIFont * fontBold = [UIFont fontWithName:@"Helvetica-Bold" size:12.0f];
+		UIFont * fontBold = [UIFont fontWithName:@"Helvetica-Bold" size:14.0f];
 		
 		CGFloat beginOffset = bBeginRange.location + bBeginRange.length;
 		CGFloat endOffSet = bEndRange.location - beginOffset;

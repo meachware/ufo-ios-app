@@ -99,13 +99,28 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 	}
 }
 
-#pragma mark Private class methods
-
 + (SGJsonRequestFinished)newsArticleProcessor
 {
 	return ^(SGArticleRequest * request, id json) {
 		
 		NSManagedObjectContext * context = [SGDataManager.shared managedObjectContext];
+		
+		if ([json isKindOfClass:NSArray.class])
+		{
+			NSArray * articles = (NSArray*)json;
+			if (articles.count > 0)
+			{
+				NSFetchRequest * fetchRequest = [NSFetchRequest.alloc init];
+				[fetchRequest setEntity: [NSEntityDescription entityForName:@"SGNewsArticle" inManagedObjectContext:context]];
+				
+				NSError * error;
+				NSArray * allArticles = [context executeFetchRequest:fetchRequest error:&error];
+				for (NSManagedObject * mo in allArticles)
+				{
+					[context deleteObject:mo];
+				}
+			}
+		}
 		
 		for (NSDictionary * dic in json)
 		{
@@ -160,12 +175,12 @@ NSString * kSGNewsArticlesChanged = @"kSGNewsArticlesChanged";
 				article.imageGallery = gallery;
 				
 			}
-			
-			NSError * error;
-			if (![context save:&error])
-			{
-				NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
-			}
+		}
+		
+		NSError * error;
+		if (![context save:&error])
+		{
+			NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
 		}
 		
 		dispatch_async(dispatch_get_main_queue(), ^{

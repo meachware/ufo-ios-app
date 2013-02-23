@@ -87,26 +87,29 @@
 	
 	if([png writeToURL:fileLocation atomically:NO])
 	{
-		NSManagedObjectContext * context = SGDataManager.shared.managedObjectContext;
-		
-		SGImage * cachedImage = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
-		cachedImage.location = fileLocation.absoluteString;
-		cachedImage.cacheKey = _imageData.cacheKey;
-		cachedImage.lastUsed = NSDate.date;
-		cachedImage.type = _imageData.type.code;
-		
-		NSError * error;
-		if (![context save:&error])
-		{
-			NSLog(@"Whoops, couldn't save image: %@", [error localizedDescription]);
-		}
-		else
-		{
-			if (_loaded)
+		dispatch_async(dispatch_get_main_queue(), ^{
+			
+			NSManagedObjectContext * context = SGDataManager.shared.managedObjectContext;
+			
+			SGImage * cachedImage = [NSEntityDescription insertNewObjectForEntityForName:@"SGImage" inManagedObjectContext:context];
+			cachedImage.location = fileLocation.absoluteString;
+			cachedImage.cacheKey = _imageData.cacheKey;
+			cachedImage.lastUsed = NSDate.date;
+			cachedImage.type = _imageData.type.code;
+			
+			NSError * error;
+			if (![context save:&error])
 			{
-				_loaded(_imageData, image, NO);
+				NSLog(@"Whoops, couldn't save image: %@", [error localizedDescription]);
 			}
-		}
+			else
+			{
+				if (_loaded)
+				{
+					_loaded(_imageData, image, NO);
+				}
+			}
+		});
 	}
 }
 
