@@ -20,6 +20,11 @@
 		661DAE0F16D1757300F6B76B /* nav_button_on@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661DAE0E16D1757300F6B76B /* nav_button_on@2x.png */; };
 		661DAE1316D17DB600F6B76B /* cell_video_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 661DAE1216D17DB600F6B76B /* cell_video_background@2x.png */; };
 		6647A0E416D8A7B800B5B378 /* cell_background_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6647A0E316D8A7B800B5B378 /* cell_background_highlighted@2x.png */; };
+		6647A0F016D8FEC200B5B378 /* SGBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 6647A0EF16D8FEC200B5B378 /* SGBarButton.m */; };
+		6647A0F216D901BE00B5B378 /* barbutton_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6647A0F116D901BE00B5B378 /* barbutton_back@2x.png */; };
+		6647A0F416D906A100B5B378 /* barbutton_back_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6647A0F316D906A100B5B378 /* barbutton_back_highlighted@2x.png */; };
+		6647A0F916D90DD200B5B378 /* barbutton_share_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6647A0F716D90DD200B5B378 /* barbutton_share_highlighted@2x.png */; };
+		6647A0FA16D90DD200B5B378 /* barbutton_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6647A0F816D90DD200B5B378 /* barbutton_share@2x.png */; };
 		6653E95C16ADC7C8001A6717 /* SGRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653E95B16ADC7C8001A6717 /* SGRequestManager.m */; };
 		6653E96016ADCF32001A6717 /* SGArticleRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 6653E95F16ADCF32001A6717 /* SGArticleRequest.m */; };
 		6653E96216ADD06F001A6717 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6653E96116ADD06F001A6717 /* Security.framework */; };
@@ -82,6 +87,12 @@
 		661DAE0E16D1757300F6B76B /* nav_button_on@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_button_on@2x.png"; sourceTree = "<group>"; };
 		661DAE1216D17DB600F6B76B /* cell_video_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_video_background@2x.png"; sourceTree = "<group>"; };
 		6647A0E316D8A7B800B5B378 /* cell_background_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_background_highlighted@2x.png"; sourceTree = "<group>"; };
+		6647A0EE16D8FEC200B5B378 /* SGBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGBarButton.h; sourceTree = "<group>"; };
+		6647A0EF16D8FEC200B5B378 /* SGBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGBarButton.m; sourceTree = "<group>"; };
+		6647A0F116D901BE00B5B378 /* barbutton_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton_back@2x.png"; sourceTree = "<group>"; };
+		6647A0F316D906A100B5B378 /* barbutton_back_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton_back_highlighted@2x.png"; sourceTree = "<group>"; };
+		6647A0F716D90DD200B5B378 /* barbutton_share_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton_share_highlighted@2x.png"; sourceTree = "<group>"; };
+		6647A0F816D90DD200B5B378 /* barbutton_share@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton_share@2x.png"; sourceTree = "<group>"; };
 		6653E95A16ADC7C8001A6717 /* SGRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGRequestManager.h; sourceTree = "<group>"; };
 		6653E95B16ADC7C8001A6717 /* SGRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGRequestManager.m; sourceTree = "<group>"; };
 		6653E95E16ADCF32001A6717 /* SGArticleRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGArticleRequest.h; sourceTree = "<group>"; };
@@ -224,6 +235,15 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		6647A0ED16D8FE6300B5B378 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				6647A0EE16D8FEC200B5B378 /* SGBarButton.h */,
+				6647A0EF16D8FEC200B5B378 /* SGBarButton.m */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		669584B716A304E4003CD021 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,6 +365,7 @@
 		66F2E74116A15ECF006C5D22 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6647A0ED16D8FE6300B5B378 /* Buttons */,
 				66F2E75216A17A6A006C5D22 /* Cells */,
 				66F2E74216A15F03006C5D22 /* SGMainControllerView.h */,
 				66F2E74316A15F03006C5D22 /* SGMainControllerView.m */,
@@ -388,6 +409,10 @@
 		66F2E74716A166E2006C5D22 /* Bar */ = {
 			isa = PBXGroup;
 			children = (
+				6647A0F716D90DD200B5B378 /* barbutton_share_highlighted@2x.png */,
+				6647A0F816D90DD200B5B378 /* barbutton_share@2x.png */,
+				6647A0F316D906A100B5B378 /* barbutton_back_highlighted@2x.png */,
+				6647A0F116D901BE00B5B378 /* barbutton_back@2x.png */,
 				661DAE0416D11A9000F6B76B /* topbar_background@2x.png */,
 			);
 			name = Bar;
@@ -481,6 +506,10 @@
 				661DAE1316D17DB600F6B76B /* cell_video_background@2x.png in Resources */,
 				66F26BFD16D1849D00FD9FE2 /* stars@2x.png in Resources */,
 				6647A0E416D8A7B800B5B378 /* cell_background_highlighted@2x.png in Resources */,
+				6647A0F216D901BE00B5B378 /* barbutton_back@2x.png in Resources */,
+				6647A0F416D906A100B5B378 /* barbutton_back_highlighted@2x.png in Resources */,
+				6647A0F916D90DD200B5B378 /* barbutton_share_highlighted@2x.png in Resources */,
+				6647A0FA16D90DD200B5B378 /* barbutton_share@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +555,7 @@
 				6671B25D16C82518004A35E0 /* SGImageGallery.m in Sources */,
 				6671B26016C82518004A35E0 /* SGBaseArticle.m in Sources */,
 				668B698816CF80F7005C04A2 /* SGTableHeaderView.m in Sources */,
+				6647A0F016D8FEC200B5B378 /* SGBarButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
