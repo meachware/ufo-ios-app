@@ -28,7 +28,7 @@
 		
 		self.backgroundColor = UIColor.whiteColor;
 		
-		_mediaGalleryView = [SGMediaGalleryView.alloc initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 100)];
+		_mediaGalleryView = [SGMediaGalleryView.alloc initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 105)];
 		[self addSubview:_mediaGalleryView];
 		
 		_titleLabel = UILabel.alloc.init;
@@ -62,7 +62,7 @@
 {
 	CGFloat vOffset = 20;
 	
-	_mediaGalleryView.frame = CGRectMake(0, 0, self.bounds.size.width, 130);
+	_mediaGalleryView.frame = CGRectMake(0, 20, self.bounds.size.width, 105);
 	vOffset += CGRectGetMaxY(_mediaGalleryView.frame);
 	
 	_titleLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 30);

@@ -9,6 +9,7 @@
 #import "SGMainControllerView.h"
 #import <QuartzCore/QuartzCore.h>
 #import "SGBaseArticle.h"
+#import "SGBarButton.h"
 
 typedef enum {
     kMainMode,
@@ -83,7 +84,7 @@ typedef enum {
 		_pageControllerView.frame = CGRectMake(0, 45, size.width, size.height - 64);
 	}
 	
-	_articleView.frame = CGRectMake(size.width, 44, size.width, size.height - 44);
+	_articleView.frame = CGRectMake(size.width, 45, size.width, size.height - 44);
 }
 
 #pragma mark Private Methods
@@ -99,12 +100,22 @@ typedef enum {
 	}
 	else if (mode == kArticleMode)
 	{
-		UIBarButtonItem * backButton = [UIBarButtonItem.alloc initWithTitle:@"News"
-																	  style:UIBarButtonItemStyleBordered
-																	 target:self
-																	 action:@selector(dismissArticle)];
+		SGBarButton * backButton = [SGBarButton.alloc initWithType:kBackButtonType];
+		[backButton setTitle:@"News" forState:UIControlStateNormal];
+		backButton.upInside = ^(){
+			[self dismissArticle];
+		};
 		
-		return [NSArray arrayWithObjects:backButton, leftSpaceItem, _navButton, rightSpaceItem, nil];
+		UIBarButtonItem * backButtonItem = [UIBarButtonItem.alloc initWithCustomView:backButton];
+		
+		SGBarButton * shareButton = [SGBarButton.alloc initWithType:kSharingType];
+		shareButton.upInside = ^(){
+			
+		};
+		
+		UIBarButtonItem * shareButtonItem = [UIBarButtonItem.alloc initWithCustomView:shareButton];
+		
+		return [NSArray arrayWithObjects:backButtonItem, leftSpaceItem, _navButton, rightSpaceItem, shareButtonItem, nil];
 	}
 	
 	return [NSArray array];
