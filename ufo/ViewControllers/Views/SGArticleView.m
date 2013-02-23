@@ -103,6 +103,8 @@
 		_paragraphTextLabel.attributedText = [self formattedText:_article.text];
 		[_paragraphTextLabel sizeToFit];
 		
+		[self setContentOffset:CGPointZero animated:NO];
+		
 		[self setNeedsDisplay];
 	}
 }
