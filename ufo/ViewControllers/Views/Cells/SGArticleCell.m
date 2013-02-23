@@ -43,9 +43,25 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
-    [super setSelected:selected animated:animated];
+	//Do nothing
+}
 
-    // Configure the view for the selected state
+- (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
+{
+	UIImage * backgroundImage;
+	
+	if (highlighted)
+	{
+		backgroundImage = [UIImage imageNamed:@"cell_background_highlighted"];
+		
+	}
+	else
+	{
+		backgroundImage = [UIImage imageNamed:@"cell_background"];
+	}
+	
+	UIImageView * backgroundView = [UIImageView.alloc initWithImage:backgroundImage];
+	self.backgroundView = backgroundView;
 }
 
 - (void)layoutSubviews
