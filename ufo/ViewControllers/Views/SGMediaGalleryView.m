@@ -31,7 +31,7 @@
 		_layout = kSGMediaGalleryViewLayoutHalf;
 		
 		_pagingScrollView = [SGPagingScrollView.alloc initWithFrame:CGRectZero
-														   pageSize:CGSizeMake(320, 100)
+														   pageSize:CGSizeMake(320, SGImageType.galleryImageSmallType.size.height)
 															spacing:0
 														   delegate:self];
 		[self addSubview:_pagingScrollView];
@@ -39,13 +39,13 @@
 		_captionLabel = UILabel.alloc.init;
 		_captionLabel.textColor = UIColor.whiteColor;
 		_captionLabel.backgroundColor = UIColor.blackColor;
-		[self addSubview:_captionLabel];
+		//[self addSubview:_captionLabel];
 		
 		_pageControl = UIPageControl.alloc.init;
-		_pageControl.pageIndicatorTintColor = UIColor.blueColor;
-		_pageControl.backgroundColor = UIColor.blackColor;
-		_pageControl.currentPage = 1;
-		_pageControl.numberOfPages = 3;
+		_pageControl.pageIndicatorTintColor = UIColor.lightGrayColor;
+		_pageControl.backgroundColor = UIColor.whiteColor;
+		_pageControl.currentPageIndicatorTintColor = UIColor.darkGrayColor;
+		_pageControl.hidesForSinglePage = YES;
 		[self addSubview:_pageControl];
     }
     return self;
@@ -61,11 +61,13 @@
 		
 		[_imageGallery.images enumerateObjectsUsingBlock:^(SGImage * obj, BOOL * stop){
 			
-			SGImageData * imageData = [SGImageData.alloc initWithPath:obj.location type:SGImageType.detailImageType];
+			SGImageData * imageData = [SGImageData.alloc initWithPath:obj.location type:SGImageType.galleryImageSmallType];
 			SGImageView * imageView = [SGImageView.alloc initWithImageData:imageData];
 			
 			[_mediaViews addObject:imageView];
 		}];
+		
+		_pageControl.numberOfPages = _mediaViews.count;
 		
 		[_pagingScrollView reload];
 	}
@@ -77,14 +79,19 @@
 	
 	if (_layout == kSGMediaGalleryViewLayoutHalf)
 	{
-		_pagingScrollView.frame = CGRectMake(0, 0, size.width, 100);
+		CGSize imageSize = SGImageType.galleryImageSmallType.size;
+		
+		_pagingScrollView.frame = CGRectMake(0, 0, size.width, imageSize.height);
 	}
 	else if (_layout == kSGMediaGalleryViewLayoutFull)
 	{
-		_pagingScrollView.frame = CGRectMake(0, 0, size.width, 200);
+		CGSize imageSize = SGImageType.galleryImageLargeType.size;
+		
+		_pagingScrollView.frame = CGRectMake(0, 0, size.width, imageSize.height);
 	}
+	
 	_captionLabel.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame), size.width, 20);
-	_pageControl.frame = CGRectMake(0, CGRectGetMaxY(_captionLabel.frame), size.width, 20);
+	_pageControl.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame) + 2, size.width, 10);
 }
 
 #pragma mark Paging ScrollView Delegation methods

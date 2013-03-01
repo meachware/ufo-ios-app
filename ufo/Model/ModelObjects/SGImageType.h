@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const SGThumbImageTypeCode;
-extern NSString * const SGDetailImageTypeCode;
+extern NSString * const SGGalleryImageSmallTypeCode;
+extern NSString * const SGGalleryImageLargeTypeCode;
 
 @interface SGImageType : NSObject
 {
@@ -24,5 +25,6 @@ extern NSString * const SGDetailImageTypeCode;
 
 #pragma Public Class methods
 + (SGImageType *)thumbImageType;
-+ (SGImageType *)detailImageType;
++ (SGImageType *)galleryImageSmallType;
++ (SGImageType *)galleryImageLargeType;
 @end

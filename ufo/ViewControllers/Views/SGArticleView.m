@@ -9,6 +9,7 @@
 #import "SGArticleView.h"
 #import "SGBaseArticle.h"
 #import "SGMediaGalleryView.h"
+#import "SGImageType.h"
 
 @interface SGArticleView ()
 - (void)handleSwipe;
@@ -31,9 +32,9 @@
 	{
 		_article = nil;
 		
-		self.backgroundColor = UIColor.whiteColor;
+		self.backgroundColor = UIColor.orangeColor;
 		
-		_mediaGalleryView = [SGMediaGalleryView.alloc initWithFrame:CGRectMake(0, 0, self.bounds.size.width, 105)];
+		_mediaGalleryView = [SGMediaGalleryView.alloc initWithFrame:CGRectMake(0, 0, self.bounds.size.width, SGImageType.galleryImageSmallType.size.height)];
 		[self addSubview:_mediaGalleryView];
 		
 		_titleLabel = UILabel.alloc.init;
@@ -57,7 +58,7 @@
 		_paragraphTextLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
 		[self addSubview:_paragraphTextLabel];
 		
-		UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe)];
+		UISwipeGestureRecognizer * recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe)];
 		[recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
 		[self addGestureRecognizer:recognizer];
 	}
@@ -70,17 +71,18 @@
 - (void)layoutSubviews
 {
 	CGFloat vOffset = 20;
+	CGFloat labelWidth = self.bounds.size.width - 30;
 	
-	_mediaGalleryView.frame = CGRectMake(0, 20, self.bounds.size.width, 105);
+	_mediaGalleryView.frame = CGRectMake(0, 0, self.bounds.size.width, SGImageType.galleryImageSmallType.size.height);
 	vOffset += CGRectGetMaxY(_mediaGalleryView.frame);
 	
-	_titleLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 30);
+	_titleLabel.frame = CGRectMake(10, vOffset, labelWidth, 30);
 	vOffset += CGRectGetHeight(_titleLabel.frame);
 	
-	_publishDateLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 30);
+	_publishDateLabel.frame = CGRectMake(10, vOffset, labelWidth, 30);
 	vOffset += CGRectGetHeight(_publishDateLabel.frame);
 	
-	_paragraphTextLabel.frame = CGRectMake(10, vOffset, self.bounds.size.width - 30, 400);
+	_paragraphTextLabel.frame = CGRectMake(10, vOffset, labelWidth, self.bounds.size.height - vOffset);
 	[_paragraphTextLabel sizeToFit];
 	vOffset += CGRectGetHeight(_paragraphTextLabel.frame);
 	

@@ -9,7 +9,8 @@
 #import "SGImageType.h"
 
 NSString * const SGThumbImageTypeCode = @"thumbImageTypeCode";
-NSString * const SGDetailImageTypeCode = @"detailImageTypeCode";
+NSString * const SGGalleryImageSmallTypeCode = @"galleryImageSmallTypeCode";
+NSString * const SGGalleryImageLargeTypeCode = @"galleryImageLargeTypeCode";
 
 @implementation SGImageType
 
@@ -41,13 +42,25 @@ NSString * const SGDetailImageTypeCode = @"detailImageTypeCode";
 	return type;
 }
 
-+ (SGImageType *)detailImageType
++ (SGImageType *)galleryImageSmallType
 {
 	static SGImageType * type = nil;
 	
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 120)code:SGDetailImageTypeCode];
+		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 120)code:SGGalleryImageSmallTypeCode];
+	});
+	
+	return type;
+}
+
++ (SGImageType *)galleryImageLargeType
+{
+	static SGImageType * type = nil;
+	
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 360)code:SGGalleryImageLargeTypeCode];
 	});
 	
 	return type;
