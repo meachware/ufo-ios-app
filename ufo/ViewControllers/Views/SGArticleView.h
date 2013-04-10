@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SGMediaGalleryView.h"
 
 typedef void (^SGArticleViewSwiped)();
 
 @class SGBaseArticle;
-@class SGMediaGalleryView;
 
-@interface SGArticleView : UIScrollView
+@interface SGArticleView : UIScrollView <SGMediaGalleryViewDelegate>
 {
 @private
 	SGBaseArticle * _article;

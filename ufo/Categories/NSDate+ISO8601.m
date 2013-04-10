@@ -122,6 +122,21 @@ const long kDayInterval = 24 * kHourInterval;
 	return [formatter stringFromDate:self];
 }
 
+- (NSString *)datePartShortISOString
+{
+	static NSDateFormatter * formatter = nil;
+	
+	static dispatch_once_t done;
+	dispatch_once(&done, ^{
+		formatter = [NSDateFormatter.alloc init];
+		formatter.timeZone = NSTimeZone.localTimeZone;
+		formatter.dateFormat = @"EEE, MMM d, ''yy";
+	});
+	
+	return [formatter stringFromDate:self];
+}
+
+
 - (NSString *)timePartISOString
 {
 	static NSDateFormatter * formatter = nil;
@@ -232,5 +247,22 @@ const long kDayInterval = 24 * kHourInterval;
 {
 	return [NSDate.alloc initWithTimeInterval:interval sinceDate:self];
 }
+
+- (NSString *)relativeTime
+{
+    if ([self isToday])
+	{
+		return [self timePartShortISOString];
+	}
+	else if ([self isYesterday])
+	{
+		return @"Yesterday";
+	}
+	else
+	{
+		return [self datePartShortISOString];
+	}
+}
+
 
 @end

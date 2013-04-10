@@ -48,7 +48,7 @@ NSString * const SGGalleryImageLargeTypeCode = @"galleryImageLargeTypeCode";
 	
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 120)code:SGGalleryImageSmallTypeCode];
+		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 105) code:SGGalleryImageSmallTypeCode];
 	});
 	
 	return type;
@@ -60,7 +60,7 @@ NSString * const SGGalleryImageLargeTypeCode = @"galleryImageLargeTypeCode";
 	
 	static dispatch_once_t onceToken;
 	dispatch_once(&onceToken, ^{
-		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 360)code:SGGalleryImageLargeTypeCode];
+		type = [SGImageType.alloc initWithSize:CGSizeMake(320, 180)code:SGGalleryImageLargeTypeCode];
 	});
 	
 	return type;

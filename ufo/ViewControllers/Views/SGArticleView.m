@@ -8,8 +8,8 @@
 
 #import "SGArticleView.h"
 #import "SGBaseArticle.h"
-#import "SGMediaGalleryView.h"
 #import "SGImageType.h"
+#import "NSDate+ISO8601.h"
 
 @interface SGArticleView ()
 - (void)handleSwipe;
@@ -32,9 +32,9 @@
 	{
 		_article = nil;
 		
-		self.backgroundColor = UIColor.orangeColor;
+		self.backgroundColor = UIColor.whiteColor;
 		
-		_mediaGalleryView = [SGMediaGalleryView.alloc initWithFrame:CGRectMake(0, 0, self.bounds.size.width, SGImageType.galleryImageSmallType.size.height)];
+		_mediaGalleryView = [SGMediaGalleryView.alloc initWithImageType:SGImageType.galleryImageLargeType];
 		[self addSubview:_mediaGalleryView];
 		
 		_titleLabel = UILabel.alloc.init;
@@ -73,10 +73,11 @@
 	CGFloat vOffset = 20;
 	CGFloat labelWidth = self.bounds.size.width - 30;
 	
-	_mediaGalleryView.frame = CGRectMake(0, 0, self.bounds.size.width, SGImageType.galleryImageSmallType.size.height);
+	_mediaGalleryView.frame = CGRectMake(0, 0, _mediaGalleryView.imageType.size.width, _mediaGalleryView.imageType.size.height);
 	vOffset += CGRectGetMaxY(_mediaGalleryView.frame);
 	
 	_titleLabel.frame = CGRectMake(10, vOffset, labelWidth, 30);
+	[_titleLabel sizeToFit];
 	vOffset += CGRectGetHeight(_titleLabel.frame);
 	
 	_publishDateLabel.frame = CGRectMake(10, vOffset, labelWidth, 30);
@@ -100,7 +101,7 @@
 		_mediaGalleryView.imageGallery = _article.imageGallery;
 		
 		_titleLabel.text = _article.title;
-		_publishDateLabel.text = _article.publishDate.description;
+		_publishDateLabel.text = [NSString stringWithFormat:@"Last updated at %@", [_article.publishDate relativeTime]];
 		
 		_paragraphTextLabel.attributedText = [self formattedText:_article.text];
 		[_paragraphTextLabel sizeToFit];
@@ -162,6 +163,13 @@
 	{
 		_articleViewSwiped();
 	}
+}
+
+#pragma mark SGMediaGalleryViewDelegate
+
+- (void)mediaGalleryViewTabbed:(SGMediaGalleryView *)view
+{
+	
 }
 
 @end

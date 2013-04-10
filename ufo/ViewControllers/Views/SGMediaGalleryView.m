@@ -10,28 +10,36 @@
 #import "SGImageGallery.h"
 #import "SGImageHeaders.h"
 
+@interface SGMediaGalleryView ()
+- (void)handleTab;
+@end
+
 @implementation SGMediaGalleryView
 
 @synthesize pagingScrollView = _pagingScrollView;
 @synthesize pageControl = _pageControl;
 @synthesize captionLabel = _captionLabel;
-@synthesize layout = _layout;
 @synthesize mediaViews = _mediaViews;
+@synthesize imageType = _imageType;
 @synthesize imageGallery = _imageGallery;
+@synthesize shadowTop = _shadowTop;
+@synthesize shadowBottom = _shadowBottom;
+@synthesize checkerOverlay = _checkerOverlay;
+@synthesize delegate = _delegate;
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithImageType:(SGImageType *)imageType
 {
-    self = [super initWithFrame:frame];
-    if (self)
+	self = [super initWithFrame:CGRectMake(0, 0, imageType.size.width, imageType.size.height)];
+	if (self)
 	{
-		self.backgroundColor = UIColor.greenColor;
+		_imageType = imageType;
+		
+		self.backgroundColor = UIColor.whiteColor;
 		
 		_mediaViews = NSMutableArray.alloc.init;
-		
-		_layout = kSGMediaGalleryViewLayoutHalf;
-		
+				
 		_pagingScrollView = [SGPagingScrollView.alloc initWithFrame:CGRectZero
-														   pageSize:CGSizeMake(320, SGImageType.galleryImageSmallType.size.height)
+														   pageSize:CGSizeMake(320, imageType.size.height)
 															spacing:0
 														   delegate:self];
 		[self addSubview:_pagingScrollView];
@@ -47,8 +55,18 @@
 		_pageControl.currentPageIndicatorTintColor = UIColor.darkGrayColor;
 		_pageControl.hidesForSinglePage = YES;
 		[self addSubview:_pageControl];
-    }
-    return self;
+		
+		_shadowTop = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"shadow_top"]];
+		[self insertSubview:_shadowTop aboveSubview:_pagingScrollView];
+		
+		_shadowBottom = [UIImageView.alloc initWithImage:[UIImage imageNamed:@"shadow_bottom"]];
+		[self insertSubview:_shadowBottom aboveSubview:_pagingScrollView];
+		
+		UITapGestureRecognizer * tabRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTab)];
+		[tabRecognizer setNumberOfTouchesRequired:1];
+		[self addGestureRecognizer:tabRecognizer];
+	}
+	return self;
 }
 
 - (void)setImageGallery:(SGImageGallery *)imageGallery
@@ -61,7 +79,7 @@
 		
 		[_imageGallery.images enumerateObjectsUsingBlock:^(SGImage * obj, BOOL * stop){
 			
-			SGImageData * imageData = [SGImageData.alloc initWithPath:obj.location type:SGImageType.galleryImageSmallType];
+			SGImageData * imageData = [SGImageData.alloc initWithPath:obj.location type:SGImageType.galleryImageLargeType];
 			SGImageView * imageView = [SGImageView.alloc initWithImageData:imageData];
 			
 			[_mediaViews addObject:imageView];
@@ -77,24 +95,18 @@
 {
 	CGSize size = self.bounds.size;
 	
-	if (_layout == kSGMediaGalleryViewLayoutHalf)
-	{
-		CGSize imageSize = SGImageType.galleryImageSmallType.size;
-		
-		_pagingScrollView.frame = CGRectMake(0, 0, size.width, imageSize.height);
-	}
-	else if (_layout == kSGMediaGalleryViewLayoutFull)
-	{
-		CGSize imageSize = SGImageType.galleryImageLargeType.size;
-		
-		_pagingScrollView.frame = CGRectMake(0, 0, size.width, imageSize.height);
-	}
+	_pagingScrollView.frame = CGRectMake(0, 0, size.width, SGImageType.galleryImageLargeType.size.height);
+	_checkerOverlay.frame = _pagingScrollView.frame;
 	
-	_captionLabel.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame), size.width, 20);
+	//_captionLabel.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame), size.width, 20);
 	_pageControl.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame) + 2, size.width, 10);
+	
+	_shadowTop.frame = CGRectMake(0, _pagingScrollView.frame.origin.y, _pagingScrollView.frame.size.width, 4);
+	_shadowBottom.frame = CGRectMake(0, CGRectGetMaxY(_pagingScrollView.frame) - 4, _pagingScrollView.frame.size.width, 4);
 }
 
 #pragma mark Paging ScrollView Delegation methods
+
 - (UIView *)pageScrollView:(SGPagingScrollView *)pageScrollView viewForPageAtIndex:(NSUInteger)index
 {
 	return [_mediaViews objectAtIndex:index];
@@ -109,6 +121,13 @@
 - (void)pageScrollView:(SGPagingScrollView *)pageScrollView didScrollToPageIndex:(NSUInteger)index
 {
 	_pageControl.currentPage = index;
+}
+
+#pragma mark Private Methods
+
+- (void)handleTab
+{
+	[_delegate mediaGalleryViewTabbed:self];
 }
 
 @end

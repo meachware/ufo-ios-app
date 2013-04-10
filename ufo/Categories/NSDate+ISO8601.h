@@ -22,6 +22,7 @@
 - (NSString *)timePartISOString;
 - (NSString *)timePartShortISOString;
 - (NSString *)RFC822String;
+- (NSString *)relativeTime;
 
 - (NSDate *)datePart;
 - (BOOL)isToday;
